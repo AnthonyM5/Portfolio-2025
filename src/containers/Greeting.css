@@ -1,0 +1,137 @@
+.greeting-main {
+  width: 100%;
+  padding: 20px 10px;
+  margin: 0px auto;
+  margin-top: 4rem;
+}
+
+.greeting-main-div {
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.greeting-text-div {
+  flex: 1;
+  padding-right: 2rem;
+}
+
+.greeting-text {
+  font-size: 3.5rem;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  color: #fff;
+}
+
+.wave-emoji {
+  animation-duration: 1.8s;
+  animation-iteration-count: infinite;
+  animation-name: wave;
+  display: inline-block;
+  transform-origin: 70% 70%;
+}
+
+@keyframes wave {
+  0% { transform: rotate(0deg); }
+  10% { transform: rotate(-10deg); }
+  20% { transform: rotate(12deg); }
+  30% { transform: rotate(-10deg); }
+  40% { transform: rotate(9deg); }
+  50% { transform: rotate(0deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.greeting-text-p {
+  font-size: 1.5rem;
+  line-height: 1.5;
+  margin-bottom: 2rem;
+  color: #868e96;
+}
+
+.social-media-div {
+  margin-bottom: 2rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.icon-button {
+  width: 2.6rem;
+  height: 2.6rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  transition: all 0.3s ease;
+}
+
+.icon-button:hover {
+  background-color: #55198b;
+}
+
+.icon-button .icon {
+  color: #171c28;
+  font-size: 1.5rem;
+}
+
+.icon-button:hover .icon {
+  color: #fff;
+}
+
+.button-greeting-div {
+  display: flex;
+  gap: 1rem;
+}
+
+.main-button {
+  background-color: #55198b;
+  border: none;
+  color: #fff;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.main-button:hover {
+  background-color: #8c43ce;
+}
+
+.greeting-image-div {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.greeting-image {
+  max-width: 100%;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  .greeting-main-div {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .greeting-text-div {
+    padding-right: 0;
+    margin-bottom: 2rem;
+  }
+
+  .greeting-text {
+    font-size: 2.5rem;
+  }
+
+  .social-media-div,
+  .button-greeting-div {
+    justify-content: center;
+  }
+} 

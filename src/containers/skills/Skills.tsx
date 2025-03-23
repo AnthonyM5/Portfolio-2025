@@ -1,6 +1,6 @@
 import React from "react";
 import "./Skills.css";
-import { skills } from "../portfolio";
+import { skills } from "../../portfolio";
 import { FaCode, FaDatabase, FaMobile, FaServer } from "react-icons/fa";
 
 const getIconForSkill = (skillName: string) => {
@@ -43,4 +43,4 @@ export const Skills = () => {
       </div>
     </div>
   );
-};
+}; 

@@ -1,34 +1,31 @@
-import React, { useState, useEffect } from "react";
-import Header from "./components/Header";
-import About from "./containers/About";
-import Skills from "./containers/Skills";
-import Experience from "./containers/Experience";
-import Contact from "./containers/Contact";
-import Footer from "./components/Footer";
-import SplashScreen from "./containers/splashScreen/SplashScreen"; // new splash screen container
+import React from "react";
+import "./styles/App.css";
 
-const App: React.FC = () => {
-  const [showSplash, setShowSplash] = useState(true);
+// Components
+import { Header } from "./components/header/Header";
+import { Greeting } from "./components/greeting/Greeting";
+import { Skills } from "./containers/skills/Skills";
+import { Projects } from "./containers/projects/Projects";
+import { Achievement } from "./containers/achievement/Achievement";
+import { Blogs } from "./containers/blogs/Blogs";
+import { Contact } from "./containers/contact/Contact";
+import { Footer } from "./containers/Footer/Footer";
+import { TopButton } from "./components/topButton/Top";
 
-  useEffect(() => {
-    const timer = setTimeout(() => setShowSplash(false), 2000);
-    return () => clearTimeout(timer);
-  }, []);
-
-  return showSplash ? (
-    <SplashScreen />
-  ) : (
-    <div>
+function App() {
+  return (
+    <div className="App">
       <Header />
-      <main>
-        <About />
-        <Skills />
-        <Experience />
-        <Contact />
-      </main>
+      <Greeting />
+      <Skills />
+      <Projects />
+      <Achievement />
+      <Blogs />
+      <Contact />
       <Footer />
+      <TopButton />
     </div>
   );
-};
+}
 
 export default App;

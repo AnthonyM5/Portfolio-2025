@@ -45,3 +45,67 @@ export const bigProjects = {
     // ...additional projects as needed...
   ]
 };
+
+interface GreetingType {
+  title: string;
+  subTitle: string;
+  github: string;
+  linkedin: string;
+}
+
+interface SkillType {
+  name: string;
+  level: string;
+  description: string;
+}
+
+interface ProjectType {
+  title: string;
+  description: string;
+  image: string;
+  tags: string[];
+  github: string;
+  demo?: string;
+}
+
+export const greeting: GreetingType = {
+  title: "Hi, I'm Anthony Mai",
+  subTitle: "A passionate Full Stack Developer specializing in building exceptional digital experiences",
+  github: "https://github.com/yourusername",
+  linkedin: "https://linkedin.com/in/yourusername"
+};
+
+export const skills: SkillType[] = [
+  {
+    name: "React & React Native",
+    level: "Advanced",
+    description: "Building responsive web applications and mobile apps"
+  },
+  {
+    name: "TypeScript",
+    level: "Advanced",
+    description: "Developing type-safe applications"
+  },
+  {
+    name: "Node.js",
+    level: "Intermediate",
+    description: "Creating scalable backend services"
+  },
+  {
+    name: "Python",
+    level: "Intermediate",
+    description: "Data analysis and automation"
+  }
+];
+
+export const projects: ProjectType[] = [
+  {
+    title: "Portfolio Website",
+    description: "Personal portfolio website built with React and TypeScript",
+    image: "/projects/portfolio.png",
+    tags: ["React", "TypeScript", "Tailwind CSS"],
+    github: "https://github.com/yourusername/portfolio",
+    demo: "https://yourportfolio.com"
+  }
+  // Add more projects here
+];
