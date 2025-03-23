@@ -1,0 +1,27 @@
+@import "../globalColor.scss";
+
+#contact {
+  padding: 2rem;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  text-align: center;
+}
+
+#contact h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+#contact p {
+  font-size: 1.2rem;
+  margin: 0.5rem 0;
+}
+
+#contact a {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+#contact a:hover {
+  text-decoration: underline;
+}

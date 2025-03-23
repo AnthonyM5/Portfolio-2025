@@ -1,0 +1,17 @@
+@import "../globalColor.scss";
+
+#about {
+  padding: 2rem;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+#about h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+#about p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
