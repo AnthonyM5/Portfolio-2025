@@ -1,0 +1,27 @@
+@import "../globalColor.scss"; // (Optional if additionalData already injects it)
+
+#skills {
+  padding: 2rem;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+#skills h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+#skills h2 {
+  font-size: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+#skills ul {
+  list-style-type: disc;
+  padding-left: 2rem;
+}
+
+#skills li {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
