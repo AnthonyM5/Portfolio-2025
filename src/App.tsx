@@ -1,22 +1,24 @@
 import React from "react";
-import "./styles/App.css";
+import "./App.scss";
 
 // Components
-import { Header } from "./components/header/Header";
-import { Greeting } from "./components/greeting/Greeting";
+import { Header } from "@/containers/Header/Header";
+import { Greeting } from "@/containers/Greeting";
 import { Skills } from "./containers/skills/Skills";
 import { Projects } from "./containers/projects/Projects";
 import { Achievement } from "./containers/achievement/Achievement";
 import { Blogs } from "./containers/blogs/Blogs";
 import { Contact } from "./containers/contact/Contact";
-import { Footer } from "./containers/Footer/Footer";
+import { Footer } from "@/containers/Footer/Footer";
 import { TopButton } from "./components/topButton/Top";
 
 function App() {
   return (
-    <div className="App">
+    <div className="app">
       <Header />
-      <Greeting />
+      <main>
+        <Greeting />
+      </main>
       <Skills />
       <Projects />
       <Achievement />

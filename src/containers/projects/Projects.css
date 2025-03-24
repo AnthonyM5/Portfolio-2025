@@ -2,7 +2,8 @@
   width: 100%;
   padding: 20px 10px;
   margin: 0px auto;
-  margin-top: 2rem;
+  margin-top: 4rem;
+  animation: fadeIn 0.6s ease forwards;
 }
 
 .projects-container {
@@ -17,30 +18,51 @@
   margin-bottom: 3rem;
   color: var(--text-color);
   text-align: center;
+  position: relative;
+}
+
+.projects-heading::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: var(--primary-color);
+  border-radius: 3px;
 }
 
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
+  opacity: 0;
+  animation: fadeIn 0.6s ease forwards;
+  animation-delay: 0.2s;
 }
 
 .project-card {
-  background: #1d2433;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
   border-radius: 10px;
   overflow: hidden;
   transition: all 0.3s ease;
+  opacity: 0;
+  animation: fadeIn 0.6s ease forwards;
 }
 
 .project-card:hover {
   transform: translateY(-7px);
-  box-shadow: 0 10px 30px -15px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 10px 30px -15px rgba(0, 0, 0, 0.2);
+  border-color: var(--primary-color);
 }
 
 .project-image {
   width: 100%;
   height: 200px;
   object-fit: cover;
+  border-bottom: 1px solid var(--border-color);
 }
 
 .project-content {
@@ -51,12 +73,13 @@
   font-size: 1.5rem;
   color: var(--text-color);
   margin-bottom: 1rem;
+  font-weight: 600;
 }
 
 .project-description {
   color: var(--text-secondary);
   font-size: 1rem;
-  line-height: 1.5;
+  line-height: 1.6;
   margin-bottom: 1.5rem;
 }
 
@@ -73,11 +96,18 @@
   padding: 0.25rem 0.75rem;
   border-radius: 15px;
   font-size: 0.85rem;
+  transition: all 0.3s ease;
+}
+
+.project-tag:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .project-links {
   display: flex;
   gap: 1rem;
+  margin-top: auto;
 }
 
 .project-link {
@@ -87,11 +117,20 @@
   align-items: center;
   gap: 0.5rem;
   font-size: 1rem;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .project-link:hover {
   color: var(--primary-color);
+  transform: translateX(5px);
+}
+
+.project-link svg {
+  transition: transform 0.3s ease;
+}
+
+.project-link:hover svg {
+  transform: translateX(3px);
 }
 
 @media (max-width: 768px) {

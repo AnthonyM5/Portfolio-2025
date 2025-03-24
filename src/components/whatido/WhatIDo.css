@@ -1,0 +1,182 @@
+.what-i-do-section {
+  padding: 8rem 0;
+  background-color: var(--background);
+  position: relative;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* Background decoration */
+.what-i-do-section::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 100%;
+  height: 100%;
+  background: var(--primary-color);
+  opacity: 0.05;
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  animation: morphing 8s ease-in-out infinite;
+}
+
+.section-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: var(--text-color);
+  margin-bottom: 4rem;
+  text-align: center;
+  opacity: 0;
+  animation: slideUp 1s ease forwards;
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: var(--primary-color);
+  border-radius: 2px;
+}
+
+.tech-stack-grid {
+  margin: 4rem 0;
+  opacity: 0;
+  animation: slideUp 1s ease forwards 0.2s;
+}
+
+.tech-icons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 2.5rem;
+  justify-items: center;
+  margin-bottom: 2.5rem;
+}
+
+.second-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 2.5rem;
+  justify-items: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.tech-icon {
+  width: 60px;
+  height: 60px;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  filter: grayscale(100%);
+  opacity: 0.7;
+}
+
+.tech-icon:hover {
+  filter: grayscale(0%);
+  transform: translateY(-8px);
+  opacity: 1;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2.5rem;
+  margin-top: 5rem;
+}
+
+.what-i-do-card {
+  background: var(--card-bg);
+  border-radius: 20px;
+  padding: 2.5rem;
+  text-align: left;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  border: 2px solid var(--border-color);
+  opacity: 0;
+  animation: slideUp 0.5s ease forwards;
+  position: relative;
+  overflow: hidden;
+}
+
+.what-i-do-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+  opacity: 0;
+  transition: all 0.3s ease;
+  z-index: 0;
+}
+
+.what-i-do-card:hover {
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 0 20px 40px var(--shadow-color);
+  border-color: var(--primary-color);
+}
+
+.what-i-do-card:hover::before {
+  opacity: 0.05;
+}
+
+.card-icon {
+  color: var(--primary-color);
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
+  position: relative;
+  z-index: 1;
+  animation: float 3s ease-in-out infinite;
+}
+
+.what-i-do-card h3 {
+  color: var(--text-color);
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 1.2rem;
+  line-height: 1.4;
+  position: relative;
+  z-index: 1;
+}
+
+.what-i-do-card p {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 2.8rem;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tech-icons {
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: 2rem;
+  }
+
+  .tech-icon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .what-i-do-card {
+    padding: 2rem;
+  }
+} 

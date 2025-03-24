@@ -1,0 +1,56 @@
+@use 'variables' as v;
+
+// Responsive breakpoints
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == 'sm' {
+    @media (min-width: v.$breakpoint-sm) { @content; }
+  } @else if $breakpoint == 'md' {
+    @media (min-width: v.$breakpoint-md) { @content; }
+  } @else if $breakpoint == 'lg' {
+    @media (min-width: v.$breakpoint-lg) { @content; }
+  } @else if $breakpoint == 'xl' {
+    @media (min-width: v.$breakpoint-xl) { @content; }
+  }
+}
+
+// Flex center
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// Container
+@mixin container {
+  width: 100%;
+  max-width: v.$container-max-width;
+  margin: 0 auto;
+  padding-left: v.$container-padding;
+  padding-right: v.$container-padding;
+  box-sizing: border-box;
+}
+
+// Hover transition
+@mixin hover-transition {
+  transition: v.$transition-base;
+  &:hover {
+    @content;
+  }
+}
+
+// Section padding
+@mixin section-padding {
+  padding: (v.$spacing-unit * 4) 0;
+}
+
+// Card shadow
+@mixin card-shadow {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+@mixin full-bleed {
+  width: 100vw;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  position: relative;
+} 

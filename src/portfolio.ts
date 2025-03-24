@@ -71,8 +71,8 @@ interface ProjectType {
 export const greeting: GreetingType = {
   title: "Hi, I'm Anthony Mai",
   subTitle: "A passionate Full Stack Developer specializing in building exceptional digital experiences",
-  github: "https://github.com/yourusername",
-  linkedin: "https://linkedin.com/in/yourusername"
+  github: "https://github.com/AnthonyM5",
+  linkedin: "https://linkedin.com/in/AnthonyMai5"
 };
 
 export const skills: SkillType[] = [
