@@ -15,7 +15,7 @@ const StartupProject: React.FC = () => {
   if (!bigProjects.display) return null;
 
   return (
-    <Fade direction="up" duration={1000} distance="20px">
+    <Fade direction="up" duration={1000}>
       <div className="main" id="projects">
         <div>
           <h1 className="skills-heading">{bigProjects.title}</h1>

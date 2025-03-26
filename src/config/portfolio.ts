@@ -4,12 +4,13 @@ interface Social {
   twitter?: string;
 }
 
-interface Portfolio {
+export interface Portfolio {
   name: string;
   role: string;
   description: string;
   image: string;
   social: Social;
+  resume: string;
 }
 
 export const portfolio: Portfolio = {
@@ -21,5 +22,6 @@ export const portfolio: Portfolio = {
     github: "https://github.com/AnthonyM5",
     linkedin: "https://linkedin.com/in/anthonymai5",
     twitter: "https://twitter.com/yourusername"
-  }
+  },
+  resume: '/path/to/your/resume.pdf'
 }; 

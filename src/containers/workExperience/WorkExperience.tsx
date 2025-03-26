@@ -2,7 +2,7 @@
 // npm install react-reveal colorthief @types/colorthief
 import React, { useContext } from "react";
 import "./WorkExperience.scss";
-import ExperienceCard from "../../portfolio/ExperienceCard";
+import ExperienceCard from "../../components/experienceCard/ExperienceCard";
 import { workExperiences } from "../../portfolio"; // now from our TS portfolio file
 import { Fade } from "react-awesome-reveal"; // replaced react-reveal with react-awesome-reveal
 import StyleContext from "../../contexts/StyleContext";
@@ -12,7 +12,7 @@ const WorkExperience: React.FC = () => {
   if (workExperiences.display) {
     return (
       <div id="experience">
-        <Fade direction="up" duration={1000} distance="20px">
+        <Fade direction="up" duration={1000}>
           <div className="experience-container" id="workExperience">
             <div>
               <h1 className="experience-heading">Experiences</h1>

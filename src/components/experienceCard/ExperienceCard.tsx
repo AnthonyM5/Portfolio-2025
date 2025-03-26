@@ -1,7 +1,7 @@
 import React, { useState, useRef, FC } from "react";
 import "./ExperienceCard.scss";
 // Replace colorthief with fast-average-color
-import FastAverageColor from "fast-average-color";
+import { FastAverageColor } from 'fast-average-color';
 
 interface CardInfo {
   company: string;
@@ -25,13 +25,12 @@ const ExperienceCard: FC<ExperienceCardProps> = ({ cardInfo, isDark }) => {
     if (imgRef.current) {
       const fac = new FastAverageColor();
       // fac.getColor returns a promise; we update our state with the computed RGB string
-      fac
-        .getColorAsync(imgRef.current)
-        .then(color => {
-          setAvgColor(color.rgb);
+      fac.getColorAsync(imgRef.current)
+        .then((color: { rgba: string }) => {
+          setAvgColor(color.rgba);
         })
-        .catch(error => {
-          console.error(error);
+        .catch((error: Error) => {
+          console.error('Error getting average color:', error);
         });
     }
   };

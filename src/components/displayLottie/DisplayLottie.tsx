@@ -1,5 +1,5 @@
 import React, { FC, Suspense } from "react";
-import Lottie, { Options } from "lottie-react";
+import Lottie from "lottie-react";
 import Loading from "../../containers/loading/Loading"; // adjust if needed
 
 interface DisplayLottieProps {
@@ -9,7 +9,7 @@ interface DisplayLottieProps {
 }
 
 const DisplayLottie: FC<DisplayLottieProps> = ({ animationData, height = 300, width = 300 }) => {
-  const options: Options = {
+  const options = {
     animationData,
     loop: true,
     autoplay: true,
