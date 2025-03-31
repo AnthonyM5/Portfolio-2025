@@ -28,7 +28,7 @@ export const Header: React.FC = () => {
       <div className="header-content">
         <h1 className="header-logo">
           <Link to="greeting" smooth={true} duration={500}>
-            {portfolio.name}
+            {portfolio.firstName}
           </Link>
         </h1>
 

@@ -8,7 +8,7 @@ export const Footer: React.FC = () => {
     <footer className="footer">
       <div className="footer-content">
         <div className="footer-info">
-          <h3>{portfolio.name}</h3>
+          <h3>{portfolio.firstName}</h3>
           <p>{portfolio.description}</p>
         </div>
         
@@ -59,7 +59,7 @@ export const Footer: React.FC = () => {
       </div>
       
       <div className="footer-bottom">
-        <p>&copy; {new Date().getFullYear()} {portfolio.name}. All Rights Reserved.</p>
+        <p>&copy; {new Date().getFullYear()} {portfolio.firstName} {portfolio.lastName}. All Rights Reserved.</p>
       </div>
     </footer>
   );

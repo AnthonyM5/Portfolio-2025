@@ -54,6 +54,11 @@ export const portfolio = {
     title: "Hi, I'm Anthony Mai",
     subtitle: "A passionate software engineer with expertise in building modern web applications and solving complex problems."
   },
+
+  social: {
+    github: 'AnthonyM5',
+    linkedin: 'AnthonyMai5'
+  },
   
   skills: {
     title: "Skills",
@@ -244,7 +249,7 @@ export const portfolio = {
     },
     {
       name: "LinkedIn",
-      url: "https://linkedin.com/in/anthonymai",
+      url: "https://linkedin.com/in/anthonymai5",
       icon: "fa-brands fa-linkedin"
     },
     {
@@ -257,5 +262,6 @@ export const portfolio = {
       url: "https://medium.com/@anthonymai",
       icon: "fa-brands fa-medium"
     }
-  ]
+  ],
+  email: 'anthony.mai530@gmail.com'
 };
