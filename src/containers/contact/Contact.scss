@@ -1,0 +1,179 @@
+@use '@/styles/variables' as v;
+@use '@/styles/mixins' as m;
+@use "sass:color";
+
+.contact-section {
+  @include m.section-padding;
+  background-color: v.$background-dark;
+  
+  .contact-container {
+    @include m.container;
+  }
+  
+  .section-title {
+    text-align: center;
+    font-size: v.$font-size-3xl;
+    color: v.$text-light;
+    margin-bottom: v.$spacing-unit;
+  }
+  
+  .section-subtitle {
+    text-align: center;
+    color: v.$text-muted;
+    max-width: 600px;
+    margin: 0 auto v.$spacing-unit * 3;
+  }
+  
+  .contact-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: v.$spacing-unit * 3;
+    
+    @include m.respond-to('md') {
+      grid-template-columns: 1fr 2fr;
+    }
+  }
+  
+  .contact-info {
+    .info-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: v.$spacing-unit * 2;
+      
+      .info-icon {
+        width: 50px;
+        height: 50px;
+        background-color: rgba(v.$primary-color, 0.1);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: v.$spacing-unit;
+        color: v.$primary-color;
+        font-size: 1.25rem;
+        flex-shrink: 0;
+      }
+      
+      .info-content {
+        h3 {
+          font-size: v.$font-size-lg;
+          color: v.$text-light;
+          margin-bottom: 0.25rem;
+        }
+        
+        p {
+          color: v.$text-muted;
+          font-size: v.$font-size-sm;
+          
+          a {
+            color: v.$text-muted;
+            transition: color 0.3s ease;
+            
+            &:hover {
+              color: v.$primary-color;
+            }
+          }
+        }
+      }
+    }
+    
+    .social-links {
+      display: flex;
+      gap: v.$spacing-unit;
+      margin-top: v.$spacing-unit * 2;
+      
+      a {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: v.$background-light;
+        color: v.$text-muted;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+        
+        &:hover {
+          background-color: v.$primary-color;
+          color: white;
+          transform: translateY(-3px);
+        }
+      }
+    }
+  }
+  
+  .contact-form {
+    background-color: v.$background-light;
+    padding: v.$spacing-unit * 2;
+    border-radius: 8px;
+    border: 1px solid v.$border-color;
+    
+    .form-group {
+      margin-bottom: v.$spacing-unit * 1.5;
+      
+      input, textarea {
+        width: 100%;
+        padding: 0.75rem 1rem;
+        border-radius: 4px;
+        border: 1px solid v.$border-color;
+        background-color: v.$background-darker;
+        color: v.$text-light;
+        font-size: v.$font-size-sm;
+        transition: border-color 0.3s ease;
+        
+        &:focus {
+          outline: none;
+          border-color: v.$primary-color;
+        }
+        
+        &::placeholder {
+          color: v.$text-muted;
+        }
+      }
+      
+      textarea {
+        resize: vertical;
+      }
+    }
+    
+    .submit-btn {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background-color: v.$primary-color;
+      color: white;
+      border-radius: 4px;
+      font-size: v.$font-size-sm;
+      font-weight: v.$font-weight-medium;
+      transition: background-color 0.3s ease;
+      cursor: pointer;
+      width: 100%;
+      
+      &:hover:not(:disabled) {
+        background-color: color.adjust(v.$primary-color, $lightness: -10%);
+      }
+      
+      &:disabled {
+        opacity: 0.7;
+        cursor: not-allowed;
+      }
+    }
+    
+    .submit-message {
+      margin-top: v.$spacing-unit;
+      padding: 0.75rem;
+      border-radius: 4px;
+      font-size: v.$font-size-sm;
+      text-align: center;
+      
+      &.success {
+        background-color: rgba(46, 204, 113, 0.1);
+        color: #2ecc71;
+      }
+      
+      &.error {
+        background-color: rgba(231, 76, 60, 0.1);
+        color: #e74c3c;
+      }
+    }
+  }
+}

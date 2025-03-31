@@ -1,25 +1,21 @@
-import React, { FC, Suspense } from "react";
+import React from "react";
 import Lottie from "lottie-react";
-import Loading from "../../containers/loading/Loading"; // adjust if needed
 
 interface DisplayLottieProps {
   animationData: any;
-  height?: number;
-  width?: number;
 }
 
-const DisplayLottie: FC<DisplayLottieProps> = ({ animationData, height = 300, width = 300 }) => {
-  const options = {
-    animationData,
-    loop: true,
-    autoplay: true,
-    rendererSettings: { preserveAspectRatio: "xMidYMid slice" },
-  };
-
+const DisplayLottie: React.FC<DisplayLottieProps> = ({ animationData }) => {
   return (
-    <Suspense fallback={<Loading />}>
-      <Lottie {...options} height={height} width={width} />
-    </Suspense>
+    <Lottie
+      animationData={animationData}
+      loop={true}
+      autoplay={true}
+      style={{ width: "100%", height: "100%" }}
+      rendererSettings={{
+        preserveAspectRatio: "xMidYMid slice"
+      }}
+    />
   );
 };
 

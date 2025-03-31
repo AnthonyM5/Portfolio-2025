@@ -1,21 +1,34 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Header.css";
 import { Link } from "react-scroll";
 import { FaBars, FaTimes } from "react-icons/fa";
+import "./Header.scss";
+import ThemeToggle from "../themeToggle/ThemeToggle";
+import { portfolio } from "@/config/portfolio";
 
-export const Header = () => {
+export const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
   return (
-    <header className="header">
+    <header className={`header ${scrolled ? 'scrolled' : ''}`}>
       <div className="header-content">
         <h1 className="header-logo">
           <Link to="greeting" smooth={true} duration={500}>
-            Anthony Mai
+            {portfolio.name}
           </Link>
         </h1>
 
@@ -41,13 +54,8 @@ export const Header = () => {
               </Link>
             </li>
             <li>
-              <Link to="achievements" smooth={true} duration={500} onClick={() => setIsOpen(false)}>
-                Achievements
-              </Link>
-            </li>
-            <li>
-              <Link to="blogs" smooth={true} duration={500} onClick={() => setIsOpen(false)}>
-                Blogs
+              <Link to="experience" smooth={true} duration={500} onClick={() => setIsOpen(false)}>
+                Experience
               </Link>
             </li>
             <li>
@@ -56,8 +64,11 @@ export const Header = () => {
               </Link>
             </li>
           </ul>
+          <ThemeToggle />
         </nav>
       </div>
     </header>
   );
-}; 
+};
+
+export default Header; 

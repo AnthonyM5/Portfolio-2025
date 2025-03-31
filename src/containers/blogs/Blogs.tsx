@@ -1,53 +1,95 @@
-import React from "react";
-import "./Blogs.css";
-import { FaExternalLinkAlt } from "react-icons/fa";
+import React from 'react';
+import { motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
+import { portfolio } from '@/config/portfolio';
+import './Blogs.scss';
 
 export const Blogs = () => {
-  const blogs = [
-    {
-      title: "Building Scalable Applications with React",
-      description: "Learn how to build scalable and maintainable React applications using modern best practices.",
-      link: "https://yourblog.com/react-scalable-apps",
-      date: "March 15, 2024"
-    },
-    {
-      title: "The Future of Web Development",
-      description: "Exploring upcoming trends and technologies that will shape the future of web development.",
-      link: "https://yourblog.com/future-web-dev",
-      date: "February 28, 2024"
-    },
-    {
-      title: "Mastering TypeScript",
-      description: "A comprehensive guide to using TypeScript effectively in your projects.",
-      link: "https://yourblog.com/typescript-guide",
-      date: "January 20, 2024"
+  const { ref, inView } = useInView({
+    threshold: 0.1,
+    triggerOnce: true
+  });
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2
+      }
     }
-  ];
+  };
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1
+    }
+  };
 
   return (
-    <div className="blogs-main" id="blogs">
+    <section className="blogs-section" id="blogs" ref={ref}>
       <div className="blogs-container">
-        <h1 className="blogs-heading">My Blog Posts</h1>
-        <div className="blogs-cards-div">
-          {blogs.map((blog, index) => (
-            <div key={index} className="blog-card">
-              <div className="blog-card-title">{blog.title}</div>
-              <div className="blog-card-description">{blog.description}</div>
-              <div className="blog-card-footer">
-                <span className="blog-card-date">{blog.date}</span>
-                <a 
-                  href={blog.link} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="blog-card-link"
-                >
-                  Read More <FaExternalLinkAlt />
+        <motion.h2 
+          className="section-title"
+          initial={{ opacity: 0, y: -20 }}
+          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
+          transition={{ duration: 0.6 }}
+        >
+          {portfolio.blogs.title}
+        </motion.h2>
+        
+        <motion.p 
+          className="section-subtitle"
+          initial={{ opacity: 0 }}
+          animate={inView ? { opacity: 1 } : { opacity: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
+          {portfolio.blogs.subtitle}
+        </motion.p>
+        
+        <motion.div 
+          className="blogs-grid"
+          variants={containerVariants}
+          initial="hidden"
+          animate={inView ? "visible" : "hidden"}
+        >
+          {portfolio.blogs.blogs.map((blog, index) => (
+            <motion.div 
+              key={index} 
+              className="blog-card"
+              variants={itemVariants}
+            >
+              <div className="blog-image">
+                <img src={blog.image} alt={blog.title} />
+                <div className="blog-date">{blog.date}</div>
+              </div>
+              <div className="blog-content">
+                <span className="blog-category">{blog.category}</span>
+                <h3>{blog.title}</h3>
+                <p>{blog.summary}</p>
+                <a href={blog.url} target="_blank" rel="noreferrer" className="read-more">
+                  Read More
                 </a>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
+        
+        <motion.div 
+          className="blogs-cta"
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+        >
+          <a href={portfolio.blogs.viewAllLink} target="_blank" rel="noreferrer" className="view-all-btn">
+            View All Posts
+          </a>
+        </motion.div>
       </div>
-    </div>
+    </section>
   );
-}; 
+};
+
+export default Blogs;

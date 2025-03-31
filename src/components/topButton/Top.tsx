@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import "@components/topButton/Top.css";
+import { useState, useEffect } from "react";
+import "./Top.scss"; // Fix the import path to use relative path and SCSS extension
 import { FaArrowUp } from "react-icons/fa";
 
 export const TopButton = () => {
@@ -41,4 +41,4 @@ export const TopButton = () => {
       )}
     </>
   );
-}; 
+};

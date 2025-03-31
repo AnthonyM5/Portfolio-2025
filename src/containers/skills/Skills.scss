@@ -1,0 +1,71 @@
+@use '@/styles/variables' as v;
+@use '@/styles/mixins' as m;
+
+.skills-section {
+  @include m.section-padding;
+  background-color: v.$background-dark;
+  
+  .skills-container {
+    @include m.container;
+  }
+  
+  .section-title {
+    text-align: center;
+    font-size: v.$font-size-3xl;
+    color: v.$text-light;
+    margin-bottom: v.$spacing-unit;
+  }
+  
+  .section-subtitle {
+    text-align: center;
+    color: v.$text-muted;
+    max-width: 600px;
+    margin: 0 auto v.$spacing-unit * 3;
+  }
+  
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: v.$spacing-unit * 2;
+    
+    @include m.respond-to('md') {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    
+    @include m.respond-to('lg') {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+  
+  .skill-card {
+    background-color: v.$background-light;
+    border-radius: 8px;
+    padding: v.$spacing-unit * 2;
+    transition: v.$transition-base;
+    border: 1px solid v.$border-color;
+    height: 100%;
+    
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      border-color: v.$primary-color;
+    }
+    
+    .skill-icon {
+      font-size: 2rem;
+      color: v.$primary-color;
+      margin-bottom: v.$spacing-unit;
+    }
+    
+    h3 {
+      font-size: v.$font-size-lg;
+      color: v.$text-light;
+      margin-bottom: v.$spacing-unit;
+    }
+    
+    p {
+      color: v.$text-muted;
+      font-size: v.$font-size-sm;
+    }
+  }
+}

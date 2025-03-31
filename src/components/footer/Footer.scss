@@ -1,0 +1,125 @@
+@use "@/styles/index" as *;
+
+.footer {
+  background-color: var(--card-bg);
+  padding: 3rem 0 1rem;
+  border-top: 1px solid var(--border-color);
+  
+  .footer-content {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    justify-content: space-between;
+    gap: 2rem;
+    
+    @media (max-width: 768px) {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+  
+  .footer-info {
+    flex: 1;
+    max-width: 300px;
+    
+    h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: var(--text-color);
+    }
+    
+    p {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+    
+    @media (max-width: 768px) {
+      max-width: 100%;
+    }
+  }
+  
+  .footer-links {
+    flex: 1;
+    max-width: 200px;
+    
+    h4 {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      color: var(--text-color);
+    }
+    
+    ul {
+      list-style: none;
+      padding: 0;
+      
+      li {
+        margin-bottom: 0.5rem;
+        
+        a {
+          color: var(--text-secondary);
+          text-decoration: none;
+          transition: color 0.3s ease;
+          font-size: 0.9rem;
+          
+          &:hover {
+            color: var(--primary-color);
+          }
+        }
+      }
+    }
+    
+    @media (max-width: 768px) {
+      max-width: 100%;
+    }
+  }
+  
+  .footer-social {
+    flex: 1;
+    max-width: 200px;
+    
+    h4 {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      color: var(--text-color);
+    }
+    
+    .social-icons {
+      display: flex;
+      gap: 1rem;
+      
+      @media (max-width: 768px) {
+        justify-content: center;
+      }
+      
+      a {
+        font-size: 1.3rem;
+        color: var(--text-secondary);
+        transition: all 0.3s ease;
+        
+        &:hover {
+          color: var(--primary-color);
+          transform: translateY(-3px);
+        }
+      }
+    }
+    
+    @media (max-width: 768px) {
+      max-width: 100%;
+    }
+  }
+  
+  .footer-bottom {
+    max-width: 1200px;
+    margin: 2rem auto 0;
+    padding: 1rem 2rem 0;
+    border-top: 1px solid var(--border-color);
+    text-align: center;
+    
+    p {
+      color: var(--text-secondary);
+      font-size: 0.8rem;
+    }
+  }
+} 

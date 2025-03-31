@@ -1,44 +1,85 @@
-import React from "react";
-import "./Achievement.css";
-import { FaTrophy, FaMedal, FaAward } from "react-icons/fa";
+import React from 'react';
+import { motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
+import { portfolio } from '@/config/portfolio';
+import './Achievement.scss';
 
 export const Achievement = () => {
+  const { ref, inView } = useInView({
+    threshold: 0.1,
+    triggerOnce: true
+  });
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1
+    }
+  };
+
   return (
-    <div className="achievement-main" id="achievements">
+    <section className="achievement-section" id="achievements" ref={ref}>
       <div className="achievement-container">
-        <h1 className="achievement-heading">Achievements And Certifications</h1>
-        <div className="achievement-cards-div">
-          <div className="achievement-card">
-            <div className="achievement-card-icon">
-              <FaTrophy />
-            </div>
-            <div className="achievement-card-title">AWS Certified Solutions Architect</div>
-            <div className="achievement-card-description">
-              Certified in designing distributed systems and deploying applications on AWS.
-            </div>
-          </div>
-
-          <div className="achievement-card">
-            <div className="achievement-card-icon">
-              <FaMedal />
-            </div>
-            <div className="achievement-card-title">Google Cloud Professional</div>
-            <div className="achievement-card-description">
-              Expertise in building scalable applications using Google Cloud Platform.
-            </div>
-          </div>
-
-          <div className="achievement-card">
-            <div className="achievement-card-icon">
-              <FaAward />
-            </div>
-            <div className="achievement-card-title">Meta Frontend Developer</div>
-            <div className="achievement-card-description">
-              Advanced certification in modern frontend development practices and React.
-            </div>
-          </div>
-        </div>
+        <motion.h2 
+          className="section-title"
+          initial={{ opacity: 0, y: -20 }}
+          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
+          transition={{ duration: 0.6 }}
+        >
+          {portfolio.achievements.title}
+        </motion.h2>
+        
+        <motion.p 
+          className="section-subtitle"
+          initial={{ opacity: 0 }}
+          animate={inView ? { opacity: 1 } : { opacity: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
+          {portfolio.achievements.subtitle}
+        </motion.p>
+        
+        <motion.div 
+          className="achievements-grid"
+          variants={containerVariants}
+          initial="hidden"
+          animate={inView ? "visible" : "hidden"}
+        >
+          {portfolio.achievements.achievements.map((achievement, index) => (
+            <motion.div 
+              key={index} 
+              className="achievement-card"
+              variants={itemVariants}
+            >
+              <div className="achievement-icon">
+                {achievement.icon && <i className={achievement.icon}></i>}
+              </div>
+              <div className="achievement-content">
+                <h3>{achievement.title}</h3>
+                <p>{achievement.description}</p>
+                {achievement.date && <span className="achievement-date">{achievement.date}</span>}
+                {achievement.link && (
+                  <a href={achievement.link} target="_blank" rel="noreferrer" className="achievement-link">
+                    Learn more
+                  </a>
+                )}
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
       </div>
-    </div>
+    </section>
   );
-}; 
+};
+
+export default Achievement;

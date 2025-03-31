@@ -1,46 +1,77 @@
-import React from "react";
-import "./Skills.css";
-import { skills } from "../../portfolio";
-import { FaCode, FaDatabase, FaMobile, FaServer } from "react-icons/fa";
-
-const getIconForSkill = (skillName: string) => {
-  const name = skillName.toLowerCase();
-  if (name.includes("react")) return <FaCode />;
-  if (name.includes("node")) return <FaServer />;
-  if (name.includes("mobile")) return <FaMobile />;
-  if (name.includes("database")) return <FaDatabase />;
-  return <FaCode />;
-};
+import React from 'react';
+import { motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
+import { portfolio } from '@/config/portfolio';
+import './Skills.scss';
 
 export const Skills = () => {
+  const { ref, inView } = useInView({
+    threshold: 0.1,
+    triggerOnce: true
+  });
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1
+    }
+  };
+
   return (
-    <div className="skills-main" id="skills">
+    <section className="skills-section" id="skills" ref={ref}>
       <div className="skills-container">
-        <h1 className="skills-heading">What I Do</h1>
-        <div className="skills-grid">
-          {skills.map((skill, index) => (
-            <div key={index} className="skill-card">
+        <motion.h2 
+          className="section-title"
+          initial={{ opacity: 0, y: -20 }}
+          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
+          transition={{ duration: 0.6 }}
+        >
+          {portfolio.skills.title}
+        </motion.h2>
+        
+        <motion.p 
+          className="section-subtitle"
+          initial={{ opacity: 0 }}
+          animate={inView ? { opacity: 1 } : { opacity: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
+          {portfolio.skills.subtitle}
+        </motion.p>
+        
+        <motion.div 
+          className="skills-grid"
+          variants={containerVariants}
+          initial="hidden"
+          animate={inView ? "visible" : "hidden"}
+        >
+          {portfolio.skills.skills.map((skill, index) => (
+            <motion.div 
+              key={index} 
+              className="skill-card"
+              variants={itemVariants}
+            >
               <div className="skill-icon">
-                {getIconForSkill(skill.name)}
+                {skill.icon && <i className={skill.icon}></i>}
               </div>
-              <div className="skill-text">
-                <h2 className="skill-title">{skill.name}</h2>
-                <div className="skill-level">
-                  <div 
-                    className="skill-progress"
-                    style={{
-                      width: skill.level === "Advanced" ? "90%" :
-                             skill.level === "Intermediate" ? "70%" :
-                             "50%"
-                    }}
-                  />
-                </div>
-                <p className="skill-description">{skill.description}</p>
-              </div>
-            </div>
+              <h3>{skill.name}</h3>
+              <p>{skill.description}</p>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
-    </div>
+    </section>
   );
-}; 
+};
+
+export default Skills;

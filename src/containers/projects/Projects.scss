@@ -1,0 +1,164 @@
+@use '@/styles/variables' as v;
+@use '@/styles/mixins' as m;
+@use "sass:color";
+
+.projects-section {
+  @include m.section-padding;
+  background-color: v.$background-darker;
+  
+  .projects-container {
+    @include m.container;
+  }
+  
+  .section-title {
+    text-align: center;
+    font-size: v.$font-size-3xl;
+    color: v.$text-light;
+    margin-bottom: v.$spacing-unit;
+  }
+  
+  .section-subtitle {
+    text-align: center;
+    color: v.$text-muted;
+    max-width: 600px;
+    margin: 0 auto v.$spacing-unit * 2;
+  }
+  
+  .project-filters {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: v.$spacing-unit;
+    margin-bottom: v.$spacing-unit * 3;
+    
+    button {
+      background: none;
+      border: 1px solid v.$border-color;
+      color: v.$text-muted;
+      padding: 0.5rem 1rem;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: v.$transition-base;
+      font-size: v.$font-size-sm;
+      
+      &:hover, &.active {
+        background-color: v.$primary-color;
+        color: white;
+        border-color: v.$primary-color;
+      }
+    }
+  }
+  
+  .projects-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: v.$spacing-unit * 2;
+    
+    @include m.respond-to('md') {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    @include m.respond-to('lg') {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  .project-card {
+    background-color: v.$background-light;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: v.$transition-base;
+    border: 1px solid v.$border-color;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      
+      .project-overlay {
+        opacity: 1;
+      }
+    }
+    
+    .project-image {
+      position: relative;
+      height: 200px;
+      overflow: hidden;
+      
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+      }
+      
+      .project-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+      
+      .project-links {
+        display: flex;
+        gap: v.$spacing-unit;
+        
+        a {
+          padding: 0.5rem 1rem;
+          background-color: v.$primary-color;
+          color: white;
+          border-radius: 4px;
+          font-size: v.$font-size-sm;
+          transition: background-color 0.3s ease;
+          
+          &:hover {
+            background-color: color.adjust(v.$primary-color, $lightness: -10%);
+          }
+        }
+      }
+    }
+    
+    .project-content {
+      padding: v.$spacing-unit * 1.5;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      
+      h3 {
+        font-size: v.$font-size-xl;
+        color: v.$text-light;
+        margin-bottom: v.$spacing-unit;
+      }
+      
+      p {
+        color: v.$text-muted;
+        font-size: v.$font-size-sm;
+        margin-bottom: v.$spacing-unit;
+        flex: 1;
+      }
+      
+      .project-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        
+        .project-tag {
+          font-size: v.$font-size-sm;
+          color: v.$text-muted;
+          background-color: v.$background-dark;
+          padding: 0.25rem 0.5rem;
+          border-radius: 4px;
+        }
+      }
+    }
+  }
+}
