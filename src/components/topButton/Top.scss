@@ -1,35 +1,37 @@
-.top-btn {
+@use '@/styles/variables' as v;
+@use '@/styles/mixins' as m;
+
+.top-button {
   position: fixed;
   bottom: 2rem;
   right: 2rem;
-  background: #55198b;
-  color: #fff;
   width: 3rem;
   height: 3rem;
+  background-color: v.$primary-color;
+  color: white;
   border-radius: 50%;
-  border: none;
-  cursor: pointer;
   display: flex;
-  align-items: center;
   justify-content: center;
-  font-size: 1.2rem;
-  transition: all 0.3s ease;
-  z-index: 1000;
-  opacity: 0.8;
-}
-
-.top-btn:hover {
-  background: #8c43ce;
-  opacity: 1;
-  transform: translateY(-3px);
-}
-
-@media (max-width: 768px) {
-  .top-btn {
-    bottom: 1rem;
-    right: 1rem;
-    width: 2.5rem;
-    height: 2.5rem;
-    font-size: 1rem;
+  align-items: center;
+  cursor: pointer;
+  transition: v.$transition-base;
+  z-index: 10;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(1rem);
+  
+  &.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
   }
-} 
+  
+  &:hover {
+    background-color: color.adjust(v.$primary-color, $lightness: -10%);
+    transform: translateY(-3px);
+  }
+  
+  svg {
+    font-size: 1.25rem;
+  }
+}

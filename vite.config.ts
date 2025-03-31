@@ -5,10 +5,19 @@ import path from 'path';
 export default defineConfig({
   plugins: [react()],
   publicDir: 'public',
-  assetsInclude: ['**/*.json'], // Make sure JSON files are treated as assets
+  assetsInclude: ['**/*.json'],
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
+    }
+  },
+  build: {
+    outDir: 'dist',
+    sourcemap: true,
+    rollupOptions: {
+      input: {
+        main: path.resolve(__dirname, 'index.html')
+      }
     }
   },
   server: {

@@ -22,7 +22,11 @@
     
     /* JSON support */
     "resolveJsonModule": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+
+    /* Additional options */
+    "composite": true,
+    "allowSyntheticDefaultImports": true
   },
   "include": ["vite.config.ts"]
 }
