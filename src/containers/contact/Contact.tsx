@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { portfolio } from '@/config/portfolio';
@@ -10,37 +10,46 @@ export const Contact = () => {
     triggerOnce: true
   });
   
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
-  });
-  
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  // Add form ref to maintain access to the form element
+  const formRef = useRef<HTMLFormElement>(null);
   const [submitMessage, setSubmitMessage] = useState('');
   const [submitStatus, setSubmitStatus] = useState('');
-  
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-  };
-  
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
     setIsSubmitting(true);
+    setSubmitMessage("Sending....");
     
+    const formData = new FormData(event.currentTarget);
+    
+    // Add the access key from environment variables
+    formData.append("access_key", import.meta.env.VITE_FORM_ACCESS_KEY);
+
     try {
-      // Here you would typically send the form data to your backend
-      // For now, we'll just simulate a successful submission
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      
-      setSubmitStatus('success');
-      setSubmitMessage('Message sent successfully! I will get back to you soon.');
-      setFormData({ name: '', email: '', subject: '', message: '' });
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      });
+  
+      const data = await response.json();
+  
+      if (data.success) {
+        setSubmitStatus('success');
+        setSubmitMessage("Message sent successfully! I will get back to you soon.");
+        // Use the ref to reset the form instead of event.currentTarget
+        if (formRef.current) {
+          formRef.current.reset();
+        }
+      } else {
+        setSubmitStatus('error');
+        setSubmitMessage(data.message || "Something went wrong. Please try again later.");
+        console.error("Form submission error:", data);
+      }
     } catch (error) {
+      console.error("Error submitting form:", error);
       setSubmitStatus('error');
-      setSubmitMessage('Oops! Something went wrong. Please try again later.');
+      setSubmitMessage("An unexpected error occurred. Please try again later.");
     } finally {
       setIsSubmitting(false);
     }
@@ -114,8 +123,9 @@ export const Contact = () => {
           </motion.div>
           
           <motion.form 
+            ref={formRef} // Add the ref to the form element
             className="contact-form"
-            onSubmit={handleSubmit}
+            onSubmit={onSubmit}
             initial={{ opacity: 0, x: 30 }}
             animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: 30 }}
             transition={{ duration: 0.6, delay: 0.3 }}
@@ -123,10 +133,7 @@ export const Contact = () => {
             <div className="form-group">
               <input 
                 type="text" 
-                id="name" 
                 name="name" 
-                value={formData.name}
-                onChange={handleChange}
                 placeholder="Your Name" 
                 required 
               />
@@ -135,10 +142,7 @@ export const Contact = () => {
             <div className="form-group">
               <input 
                 type="email" 
-                id="email" 
                 name="email" 
-                value={formData.email}
-                onChange={handleChange}
                 placeholder="Your Email" 
                 required 
               />
@@ -147,10 +151,7 @@ export const Contact = () => {
             <div className="form-group">
               <input 
                 type="text" 
-                id="subject" 
                 name="subject" 
-                value={formData.subject}
-                onChange={handleChange}
                 placeholder="Subject" 
                 required 
               />
@@ -158,10 +159,7 @@ export const Contact = () => {
             
             <div className="form-group">
               <textarea 
-                id="message" 
                 name="message" 
-                value={formData.message}
-                onChange={handleChange}
                 placeholder="Your Message" 
                 required
                 rows={6}

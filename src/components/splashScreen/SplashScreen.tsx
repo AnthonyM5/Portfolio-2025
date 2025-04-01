@@ -10,7 +10,7 @@ const SplashScreen = () => {
 
   useEffect(() => {
     const animationPath = '/assets/lottie/splashAnimation.json';
-    
+
     loadLottieAnimation(animationPath)
       .then(data => {
         setAnimationData(data);
