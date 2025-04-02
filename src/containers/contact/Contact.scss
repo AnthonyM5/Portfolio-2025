@@ -176,4 +176,44 @@
       }
     }
   }
+  
+  .form-success-message {
+    background-color: v.$background-light;
+    padding: v.$spacing-unit * 2;
+    border-radius: 8px;
+    border: 1px solid v.$border-color;
+    text-align: center;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    .success-icon {
+      font-size: 3rem;
+      color: #2ecc71;
+      margin-bottom: v.$spacing-unit;
+    }
+    
+    h3 {
+      font-size: v.$font-size-xl;
+      color: v.$text-light;
+      margin-bottom: v.$spacing-unit;
+    }
+    
+    p {
+      color: v.$text-muted;
+      font-size: v.$font-size-sm;
+    }
+  }
+  
+  .contact-form-container {
+    height: 100%;
+  }
+  
+  .validation-error {
+    color: #e74c3c;
+    font-size: v.$font-size-xs;
+    margin-top: 0.25rem;
+  }
 }

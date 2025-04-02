@@ -1,6 +1,6 @@
-import React, { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import { useForm, ValidationError } from '@formspree/react';
 import { portfolio } from '@/config/portfolio';
 import './Contact.scss';
 
@@ -10,50 +10,7 @@ export const Contact = () => {
     triggerOnce: true
   });
   
-  // Add form ref to maintain access to the form element
-  const formRef = useRef<HTMLFormElement>(null);
-  const [submitMessage, setSubmitMessage] = useState('');
-  const [submitStatus, setSubmitStatus] = useState('');
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    setIsSubmitting(true);
-    setSubmitMessage("Sending....");
-    
-    const formData = new FormData(event.currentTarget);
-    
-    // Add the access key from environment variables
-    formData.append("access_key", import.meta.env.VITE_FORM_ACCESS_KEY);
-
-    try {
-      const response = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        body: formData
-      });
-  
-      const data = await response.json();
-  
-      if (data.success) {
-        setSubmitStatus('success');
-        setSubmitMessage("Message sent successfully! I will get back to you soon.");
-        // Use the ref to reset the form instead of event.currentTarget
-        if (formRef.current) {
-          formRef.current.reset();
-        }
-      } else {
-        setSubmitStatus('error');
-        setSubmitMessage(data.message || "Something went wrong. Please try again later.");
-        console.error("Form submission error:", data);
-      }
-    } catch (error) {
-      console.error("Error submitting form:", error);
-      setSubmitStatus('error');
-      setSubmitMessage("An unexpected error occurred. Please try again later.");
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
+  const [state, handleSubmit] = useForm("mjkyakgl");
 
   return (
     <section className="contact-section" id="contact" ref={ref}>
@@ -122,58 +79,78 @@ export const Contact = () => {
             </div>
           </motion.div>
           
-          <motion.form 
-            ref={formRef} // Add the ref to the form element
-            className="contact-form"
-            onSubmit={onSubmit}
+          <motion.div 
+            className="contact-form-container"
             initial={{ opacity: 0, x: 30 }}
             animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: 30 }}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
-            <div className="form-group">
-              <input 
-                type="text" 
-                name="name" 
-                placeholder="Your Name" 
-                required 
-              />
-            </div>
-            
-            <div className="form-group">
-              <input 
-                type="email" 
-                name="email" 
-                placeholder="Your Email" 
-                required 
-              />
-            </div>
-            
-            <div className="form-group">
-              <input 
-                type="text" 
-                name="subject" 
-                placeholder="Subject" 
-                required 
-              />
-            </div>
-            
-            <div className="form-group">
-              <textarea 
-                name="message" 
-                placeholder="Your Message" 
-                required
-                rows={6}
-              />
-            </div>
-            
-            <button type="submit" className="submit-btn" disabled={isSubmitting}>
-              {isSubmitting ? 'Sending...' : 'Send Message'}
-            </button>
-            
-            {submitMessage && (
-              <p className={`submit-message ${submitStatus}`}>{submitMessage}</p>
+            {state.succeeded ? (
+              <div className="form-success-message">
+                <div className="success-icon">
+                  <i className="fas fa-check-circle"></i>
+                </div>
+                <h3>Message Sent!</h3>
+                <p>Thank you for reaching out. I'll get back to you as soon as possible!</p>
+              </div>
+            ) : (
+              <form className="contact-form" onSubmit={handleSubmit}>
+                <div className="form-group">
+                  <input 
+                    type="text" 
+                    id="name"
+                    name="name" 
+                    placeholder="Your Name" 
+                    required 
+                  />
+                  <ValidationError prefix="Name" field="name" errors={state.errors} />
+                </div>
+                
+                <div className="form-group">
+                  <input 
+                    type="email" 
+                    id="email"
+                    name="email" 
+                    placeholder="Your Email" 
+                    required 
+                  />
+                  <ValidationError prefix="Email" field="email" errors={state.errors} />
+                </div>
+                
+                <div className="form-group">
+                  <input 
+                    type="text" 
+                    id="subject"
+                    name="subject" 
+                    placeholder="Subject" 
+                    required 
+                  />
+                  <ValidationError prefix="Subject" field="subject" errors={state.errors} />
+                </div>
+                
+                <div className="form-group">
+                  <textarea 
+                    id="message"
+                    name="message" 
+                    placeholder="Your Message" 
+                    required
+                    rows={6}
+                  />
+                  <ValidationError prefix="Message" field="message" errors={state.errors} />
+                </div>
+                
+                <button type="submit" className="submit-btn" disabled={state.submitting}>
+                  {state.submitting ? 'Sending...' : 'Send Message'}
+                </button>
+                
+                {state.errors && Object.keys(state.errors).length > 0 && (
+                  <p className="submit-message error">
+                    There was an error submitting the form. Please check the fields and try again.
+                  </p>
+                )}
+              </form>
             )}
-          </motion.form>
+          </motion.div>
         </div>
       </div>
     </section>
