@@ -1,26 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import Lottie from 'lottie-react';
-import { useState, useEffect } from 'react';
 import { portfolio } from "@/config/portfolio";
-import { loadLottieAnimation } from '../../utils/lottieLoader';
 import "./Greeting.scss";
+import LottieAnimation from '../LottieAnimation';
 
 export const Greeting = () => {
-  const [animationData, setAnimationData] = useState(null);
-
-  useEffect(() => {
-    const animationPath = '/assets/lottie/landingPerson.json';
-    
-    loadLottieAnimation(animationPath)
-      .then(data => {
-        setAnimationData(data);
-      })
-      .catch(err => {
-        console.error("Failed to load animation:", err);
-      });
-  }, []);
-
   return (
     <section className="greeting-section" id="greeting">
       <div className="greeting-container">
@@ -54,15 +38,12 @@ export const Greeting = () => {
           </motion.div>
         </div>
         <div className="greeting-animation">
-          {animationData && (
-            <Lottie
-              animationData={animationData}
-              loop={true}
-              autoplay={true}
-              rendererSettings={{ preserveAspectRatio: "xMidYMid slice" }}
-              style={{ width: '100%', height: '100%' }}
-            />
-          )}
+          <LottieAnimation
+            animationPath="/assets/lottie/landingPerson.json"
+            loop={true}
+            autoplay={true}
+            style={{ width: '100%', height: '100%' }}
+          />
         </div>
       </div>
     </section>

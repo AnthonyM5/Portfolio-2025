@@ -1,12 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-scroll';
+import { FaMoon, FaSun } from 'react-icons/fa';
 import { motion } from 'framer-motion';
-import DarkModeToggle from '../darkModeToggle/DarkModeToggle'; // Import the DarkModeToggle
 import './Header.scss';
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+      return savedTheme === 'dark';
+    }
+    return window.matchMedia('(prefers-color-scheme: dark)').matches;
+  });
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,8 +29,19 @@ const Header = () => {
     };
   }, [scrolled]);
 
+  useEffect(() => {
+    // Apply theme to document
+    document.documentElement.setAttribute('data-theme', isDarkMode ? 'dark' : 'light');
+    // Save preference
+    localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+  }, [isDarkMode]);
+
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
+  };
+
+  const toggleTheme = () => {
+    setIsDarkMode(!isDarkMode);
   };
 
   const navLinks = [
@@ -38,7 +56,17 @@ const Header = () => {
   return (
     <header className={`header ${scrolled ? 'scrolled' : ''}`}>
       <div className="header-container">
-        <a href="/" className="logo">AM</a>
+        <button 
+          className="theme-toggle" 
+          onClick={toggleTheme}
+          aria-label={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
+        >
+          {isDarkMode ? (
+            <FaSun className="theme-icon sun" />
+          ) : (
+            <FaMoon className="theme-icon moon" />
+          )}
+        </button>
         
         {/* Mobile menu button */}
         <button 
@@ -68,9 +96,6 @@ const Header = () => {
                 </Link>
               </li>
             ))}
-            <li>
-              <DarkModeToggle /> {/* Add the DarkModeToggle component */}
-            </li>
           </ul>
         </nav>
       </div>

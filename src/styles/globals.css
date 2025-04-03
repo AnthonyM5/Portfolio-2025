@@ -160,6 +160,16 @@ html {
   animation: bounce 2s infinite;
 }
 
+/* Ensure Lottie animations are visible */
+.animation-visible {
+  visibility: visible !important;
+  opacity: 1 !important;
+  z-index: 10;
+  width: 100% !important;
+  height: 100% !important;
+  display: block !important;
+}
+
 /* Stagger children animations */
 .stagger-children > * {
   opacity: 0;
@@ -413,4 +423,4 @@ html {
 .section.visible {
   opacity: 1;
   transform: translateY(0);
-} 
+}

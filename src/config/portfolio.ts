@@ -125,28 +125,28 @@ export const portfolio = {
       {
         title: "Educational Mobile App Modernization",
         description: "Successfully modernized a legacy application for an education support services company, leveraging Angular/Ionic and NgRX/RxJS-based state management, resulting in notable performance improvements and enhanced user experience.",
-        image: "/assets/image/education-app.jpg",
+        image: "assets/image/mybrightday.jpg",
         technologies: ["Angular", "Ionic", "NgRX", "RxJS", "Jest"],
         category: "Mobile"
       },
       {
         title: "eCommerce Integration",
         description: "Integrated middleware platforms (Hybris/Mirakl) for SAP based eCommerce web app, collaborating with Hybris/Apigee developers to integrate APIs and troubleshoot bugs during UAT testing.",
-        image: "/assets/image/ecommerce.jpg",
+        image: "assets/images/E-Commerce-Logo-Transparent-File-2932804878.png",
         technologies: ["JavaScript", "SAP", "Hybris", "Apigee", "API Integration"],
         category: "Integration"
       },
       {
         title: "Learning Platform Enhancement",
         description: "Developed a React.js MVP for a feature enhancement on a synchronous learning/training platform, using Redis and Socket.io to create a synchronous experience for users on mobile devices.",
-        image: "/assets/image/learning-platform.jpg",
+        image: "assets/images/root-logo-share-fb.jpg",
         technologies: ["React.js", "Node.js", "Redis", "Socket.io", "Heroku"],
         category: "Web"
       },
       {
         title: "Banking Analytics Implementation",
         description: "Added analytics to a massive online Angular web application for banking customers to track user flows using RxJS to gather metrics for Domestic Wires and Cashiers Checks, visualized in Google Analytics.",
-        image: "/assets/image/banking.jpg",
+        image: "assets/images/Finance-Banking-PNG-Image-1748650174.png",
         technologies: ["Angular", "RxJS", "Google Analytics", "TypeScript"],
         category: "Analytics"
       }
@@ -160,7 +160,7 @@ export const portfolio = {
       {
         company: "Education Support Services Company",
         position: "Mobile App Developer",
-        logo: "/assets/image/education-logo.png",
+        logo: "assets/images/mybrightday.jpg",
         location: "New York, NY",
         description: [
           "Successfully modernized the legacy application, leveraging Angular/Ionic and the NgRX/RxJS-based state management, resulting in notable performance improvements and enhanced user experience.",
@@ -175,7 +175,7 @@ export const portfolio = {
       {
         company: "Mirakl/Hybris Ecommerce Marketplace",
         position: "Web Developer",
-        logo: "/assets/image/ecommerce-logo.png",
+        logo: "assets/images/SGWS.jpg",
         location: "New York, NY",
         description: [
           "Integrated middleware platforms (Hybris/Mirakl) for SAP based eCommerce web app as part of the frontend development team.",
@@ -190,7 +190,7 @@ export const portfolio = {
       {
         company: "Synchronous Learning/Training Platform",
         position: "Full Stack Developer",
-        logo: "/assets/image/learning-logo.png",
+        logo: "assets/images/root-logo-share-fb.jpg",
         location: "New York, NY",
         description: [
           "Resolved access issues (especially for regions like China) by creating and deploying a custom Heroku Domain for existing Node.js service.",
@@ -205,7 +205,7 @@ export const portfolio = {
       {
         company: "Financial Services/Banking",
         position: "Frontend Developer",
-        logo: "/assets/image/banking-logo.png",
+        logo: "assets/image/Banking-Finance.png",
         location: "New York, NY",
         description: [
           "Supported an effort to add analytics to a massive online Angular web application for banking customers.",
@@ -256,25 +256,25 @@ export const portfolio = {
       {
         title: "Retail/eCommerce/Logistics",
         summary: "Developing eCommerce platforms with middleware integration and optimized user experiences.",
-        date: "2019 - 2021",
+        date: "",
         category: "Industry",
-        image: "/assets/image/retail.jpg",
+        image: "assets/images/Ecommerce-Free-PNG-Image-1130990915.png",
         url: "#"
       },
       {
         title: "Early Childhood Education",
         summary: "Building mobile applications for educational support services with enhanced communication features.",
-        date: "2021 - Present",
+        date: "",
         category: "Industry",
-        image: "/assets/image/education.jpg",
+        image: "assets/image/mybrightday.jpg",
         url: "#"
       },
       {
         title: "Financial Services/Banking",
         summary: "Implementing analytics and developing secure, high-performance applications for banking customers.",
-        date: "2017 - 2018",
+        date: "",
         category: "Industry",
-        image: "/assets/image/finance.jpg",
+        image: "assets/images/Finance-Banking-PNG-Image-1748650174.png",
         url: "#"
       }
     ]

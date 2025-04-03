@@ -26,15 +26,58 @@
     align-items: center;
   }
   
-  .logo {
-    font-size: v.$font-size-xl;
-    font-weight: v.$font-weight-bold;
-    color: v.$text-light;
-    text-decoration: none;
+  .logo-container {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 2rem;
+    background-color: v.$background-light;
     transition: v.$transition-base;
+    position: relative;
     
     &:hover {
-      color: v.$primary-color;
+      background-color: rgba(v.$primary-color, 0.1);
+    }
+    
+    .logo {
+      font-size: v.$font-size-xl;
+      font-weight: v.$font-weight-bold;
+      color: v.$text-light;
+      margin-right: 0.75rem;
+      z-index: 1;
+    }
+    
+    .theme-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 50%;
+      background-color: v.$background-light;
+      color: v.$text-light;
+      border: none;
+      cursor: pointer;
+      transition: v.$transition-base;
+      position: relative;
+      
+      &:hover {
+        background-color: rgba(v.$primary-color, 0.2);
+        transform: rotate(15deg);
+      }
+      
+      .theme-icon {
+        font-size: 1.25rem;
+        
+        &.sun {
+          color: #f1c40f; // yellow for sun
+        }
+        
+        &.moon {
+          color: #9b59b6; // purple for moon
+        }
+      }
     }
   }
   

@@ -1,5 +1,6 @@
-import React, { FC, Suspense } from "react";
+import React, { FC, Suspense, useEffect, useState, CSSProperties } from "react";
 import Lottie from "lottie-react";
+import { loadLottieAnimation } from '../utils/lottieLoader';
 
 // Simple loading component as fallback
 const LoadingFallback = () => (
@@ -7,9 +8,9 @@ const LoadingFallback = () => (
 );
 
 interface LottieAnimationProps {
-  animationData: any;
-  height?: number;
-  width?: number;
+  animationPath: string;
+  height?: number | string;
+  width?: number | string;
   loop?: boolean;
   autoplay?: boolean;
   className?: string;
@@ -17,7 +18,7 @@ interface LottieAnimationProps {
 }
 
 const LottieAnimation: FC<LottieAnimationProps> = ({
-  animationData,
+  animationPath,
   height,
   width,
   loop = true,
@@ -25,29 +26,64 @@ const LottieAnimation: FC<LottieAnimationProps> = ({
   className = '',
   style = {},
 }) => {
-  // Prepare options for Lottie component
-  const options = {
-    animationData,
-    loop,
-    autoplay,
-    rendererSettings: { 
-      preserveAspectRatio: "xMidYMid slice" 
-    },
+  const [animationData, setAnimationData] = useState<any>(null);
+  const [error, setError] = useState<boolean>(false);
+
+  useEffect(() => {
+    let isMounted = true;
+    
+    // Ensure path starts with / for public directory
+    const path = animationPath.startsWith('/') ? animationPath : `/${animationPath}`;
+    
+    loadLottieAnimation(path)
+      .then(data => {
+        if (isMounted) {
+          setAnimationData(data);
+          setError(false);
+        }
+      })
+      .catch(err => {
+        console.error("Failed to load animation:", path, err);
+        if (isMounted) {
+          setError(true);
+        }
+      });
+      
+    return () => {
+      isMounted = false;
+    };
+  }, [animationPath]);
+
+  // Apply height and width to style if provided - Fix TypeScript error with correct typing
+  const combinedStyle: CSSProperties = {
+    ...style,
+    ...(height ? { height: typeof height === 'number' ? `${height}px` : height } : {}),
+    ...(width ? { width: typeof width === 'number' ? `${width}px` : width } : {}),
+    visibility: 'visible' as const,
+    opacity: 1,
+    display: 'block'
   };
 
-  // Apply height and width to style if provided
-  const combinedStyle = {
-    ...style,
-    ...(height ? { height: `${height}px` } : {}),
-    ...(width ? { width: `${width}px` } : {})
-  };
+  if (error) {
+    return <div className={className} style={combinedStyle}>Failed to load animation</div>;
+  }
+
+  if (!animationData) {
+    return <LoadingFallback />;
+  }
 
   return (
     <Suspense fallback={<LoadingFallback />}>
       <Lottie 
-        {...options} 
+        animationData={animationData}
+        loop={loop}
+        autoplay={autoplay}
         style={combinedStyle}
-        className={className}
+        className={`lottie-animation ${className}`}
+        rendererSettings={{ 
+          preserveAspectRatio: "xMidYMid slice",
+          progressiveLoad: false
+        }}
       />
     </Suspense>
   );

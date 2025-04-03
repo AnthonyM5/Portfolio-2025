@@ -1,20 +1,19 @@
 import React from "react";
-import Lottie from "lottie-react";
+import LottieAnimation from "../LottieAnimation";
 
 interface DisplayLottieProps {
-  animationData: any;
+  animationPath: string;
+  className?: string;
 }
 
-const DisplayLottie: React.FC<DisplayLottieProps> = ({ animationData }) => {
+const DisplayLottie: React.FC<DisplayLottieProps> = ({ animationPath, className }) => {
   return (
-    <Lottie
-      animationData={animationData}
+    <LottieAnimation
+      animationPath={animationPath}
       loop={true}
       autoplay={true}
+      className={className}
       style={{ width: "100%", height: "100%" }}
-      rendererSettings={{
-        preserveAspectRatio: "xMidYMid slice"
-      }}
     />
   );
 };

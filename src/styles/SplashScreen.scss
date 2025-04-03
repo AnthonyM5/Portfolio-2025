@@ -1,14 +1,19 @@
-
 .splash-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  background-color: var(--background);
 }
 
 .splash-animation-container {
   height: 50vh;
+  width: 280px;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .splash-title-container {
@@ -20,4 +25,31 @@
   font-family: "Agustina Regular", cursive;
   font-weight: bold;
   padding: 0 20px;
+  color: var(--text-color);
+}
+
+/* Make sure lottie animations are visible */
+.animation {
+  width: 100% !important;
+  height: 100% !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  z-index: 10;
+}
+
+.logo-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  height: 300px;
+}
+
+.logo {
+  font-size: 3rem;
+  font-weight: bold;
+  color: var(--primary-color);
+  z-index: 20;
+  position: relative;
 }
