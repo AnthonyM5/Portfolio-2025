@@ -83,9 +83,6 @@ export const Blogs = () => {
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.6, delay: 0.4 }}
         >
-          <a href={portfolio.blogs.viewAllLink} target="_blank" rel="noreferrer" className="view-all-btn">
-            View All Posts
-          </a>
         </motion.div>
       </div>
     </section>
