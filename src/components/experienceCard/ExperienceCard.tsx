@@ -6,7 +6,6 @@ interface ExperienceCardProps {
   company: string;
   position: string;
   logo?: string;
-  duration?: string; // Make duration optional
   location: string;
   description: string[];
   technologies: string[];
@@ -50,7 +49,6 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
               )}
             </h4>
             <div className="experience-meta">
-              {/* Removed duration display */}
               <span className="location">{location}</span>
             </div>
           </div>

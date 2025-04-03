@@ -47,7 +47,6 @@ interface Experience {
   company: string;
   position: string;
   logo?: string;
-  duration: string;
   location: string;
   description: string[];
   technologies: string[];
@@ -162,7 +161,6 @@ export const portfolio = {
         company: "Education Support Services Company",
         position: "Mobile App Developer",
         logo: "/assets/image/education-logo.png",
-        duration: "2021 - Present",
         location: "New York, NY",
         description: [
           "Successfully modernized the legacy application, leveraging Angular/Ionic and the NgRX/RxJS-based state management, resulting in notable performance improvements and enhanced user experience.",
@@ -178,7 +176,6 @@ export const portfolio = {
         company: "Mirakl/Hybris Ecommerce Marketplace",
         position: "Web Developer",
         logo: "/assets/image/ecommerce-logo.png",
-        duration: "2019 - 2021",
         location: "New York, NY",
         description: [
           "Integrated middleware platforms (Hybris/Mirakl) for SAP based eCommerce web app as part of the frontend development team.",
@@ -194,7 +191,6 @@ export const portfolio = {
         company: "Synchronous Learning/Training Platform",
         position: "Full Stack Developer",
         logo: "/assets/image/learning-logo.png",
-        duration: "2018 - 2019",
         location: "New York, NY",
         description: [
           "Resolved access issues (especially for regions like China) by creating and deploying a custom Heroku Domain for existing Node.js service.",
@@ -210,7 +206,6 @@ export const portfolio = {
         company: "Financial Services/Banking",
         position: "Frontend Developer",
         logo: "/assets/image/banking-logo.png",
-        duration: "2017 - 2018",
         location: "New York, NY",
         description: [
           "Supported an effort to add analytics to a massive online Angular web application for banking customers.",
