@@ -26,6 +26,7 @@ function App() {
         else {
             var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
             document.documentElement.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
+            localStorage.setItem('theme', prefersDark ? 'dark' : 'light');
         }
         var timer = setTimeout(function () {
             setLoading(false);

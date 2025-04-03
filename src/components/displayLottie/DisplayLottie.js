@@ -1,9 +1,7 @@
 import { jsx as _jsx } from "react/jsx-runtime";
-import Lottie from "lottie-react";
+import LottieAnimation from "../LottieAnimation";
 var DisplayLottie = function (_a) {
-    var animationData = _a.animationData;
-    return (_jsx(Lottie, { animationData: animationData, loop: true, autoplay: true, style: { width: "100%", height: "100%" }, rendererSettings: {
-            preserveAspectRatio: "xMidYMid slice"
-        } }));
+    var animationPath = _a.animationPath, className = _a.className;
+    return (_jsx(LottieAnimation, { animationPath: animationPath, loop: true, autoplay: true, className: className, style: { width: "100%", height: "100%" } }));
 };
 export default DisplayLottie;

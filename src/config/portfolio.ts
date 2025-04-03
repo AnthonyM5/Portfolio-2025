@@ -205,7 +205,7 @@ export const portfolio = {
       {
         company: "Financial Services/Banking",
         position: "Frontend Developer",
-        logo: "assets/image/Banking-Finance.png",
+        logo: "assets/images/Banking-Finance.png",
         location: "New York, NY",
         description: [
           "Supported an effort to add analytics to a massive online Angular web application for banking customers.",
@@ -266,7 +266,7 @@ export const portfolio = {
         summary: "Building mobile applications for educational support services with enhanced communication features.",
         date: "",
         category: "Industry",
-        image: "assets/image/mybrightday.jpg",
+        image: "assets/images/mybrightday.jpg",
         url: "#"
       },
       {
