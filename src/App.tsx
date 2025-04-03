@@ -15,13 +15,21 @@ import { Projects } from "./containers/projects/Projects";
 import { Achievement } from "./containers/achievement/Achievement";
 import { Blogs } from "./containers/blogs/Blogs";
 import { Contact } from "./containers/contact/Contact";
-import ExperienceCard from "./components/experienceCard/ExperienceCard";
 import { Experience } from "./containers/experience/Experience";
 
 function App() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    // Initialize theme from localStorage or system preference
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    } else {
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      document.documentElement.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
+    }
+
     const timer = setTimeout(() => {
       setLoading(false);
     }, 2000);

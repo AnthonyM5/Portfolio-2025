@@ -1,74 +1,81 @@
-import React, { useState, useEffect } from "react";
-import "./Header.css";
-import { Link } from "react-scroll";
-import { FaBars, FaTimes } from "react-icons/fa";
-import "./Header.scss";
-import ThemeToggle from "../themeToggle/ThemeToggle";
-import { portfolio } from "@/config/portfolio";
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-scroll';
+import { motion } from 'framer-motion';
+import DarkModeToggle from '../darkModeToggle/DarkModeToggle'; // Import the DarkModeToggle
+import './Header.scss';
 
-export const Header: React.FC = () => {
-  const [isOpen, setIsOpen] = useState(false);
+const Header = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      const isScrolled = window.scrollY > 50;
+      if (isScrolled !== scrolled) {
+        setScrolled(isScrolled);
+      }
     };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    document.addEventListener('scroll', handleScroll);
+    return () => {
+      document.removeEventListener('scroll', handleScroll);
+    };
+  }, [scrolled]);
 
   const toggleMenu = () => {
-    setIsOpen(!isOpen);
+    setMenuOpen(!menuOpen);
   };
+
+  const navLinks = [
+    { name: 'Home', target: 'greeting' },
+    { name: 'Skills', target: 'skills' },
+    { name: 'Experience', target: 'experience' },
+    { name: 'Projects', target: 'projects' },
+    { name: 'Industry', target: 'industries' },
+    { name: 'Contact', target: 'contact' }
+  ];
 
   return (
     <header className={`header ${scrolled ? 'scrolled' : ''}`}>
-      <div className="header-content">
-        <h1 className="header-logo">
-          <Link to="greeting" smooth={true} duration={500}>
-            {portfolio.firstName}
-          </Link>
-        </h1>
-
-        <button className="nav-toggle" onClick={toggleMenu} aria-label="Toggle navigation">
-          {isOpen ? <FaTimes /> : <FaBars />}
+      <div className="header-container">
+        <a href="/" className="logo">AM</a>
+        
+        {/* Mobile menu button */}
+        <button 
+          className={`menu-toggle ${menuOpen ? 'active' : ''}`} 
+          onClick={toggleMenu}
+          aria-label="Toggle menu"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
         </button>
-
-        <nav className={`nav-menu ${isOpen ? 'active' : ''}`}>
-          <ul>
+        
+        <nav className={`nav ${menuOpen ? 'open' : ''}`}>
+          <ul className="nav-links">
+            {navLinks.map((link, index) => (
+              <li key={index}>
+                <Link
+                  to={link.target}
+                  spy={true}
+                  smooth={true}
+                  offset={-70}
+                  duration={500}
+                  onClick={() => setMenuOpen(false)}
+                  activeClass="active"
+                >
+                  {link.name}
+                </Link>
+              </li>
+            ))}
             <li>
-              <Link to="about" smooth={true} duration={500} onClick={() => setIsOpen(false)}>
-                About
-              </Link>
-            </li>
-            <li>
-              <Link to="skills" smooth={true} duration={500} onClick={() => setIsOpen(false)}>
-                Skills
-              </Link>
-            </li>
-            <li>
-              <Link to="projects" smooth={true} duration={500} onClick={() => setIsOpen(false)}>
-                Projects
-              </Link>
-            </li>
-            <li>
-              <Link to="experience" smooth={true} duration={500} onClick={() => setIsOpen(false)}>
-                Experience
-              </Link>
-            </li>
-            <li>
-              <Link to="contact" smooth={true} duration={500} onClick={() => setIsOpen(false)}>
-                Contact
-              </Link>
+              <DarkModeToggle /> {/* Add the DarkModeToggle component */}
             </li>
           </ul>
-          <ThemeToggle />
         </nav>
       </div>
     </header>
   );
 };
 
-export default Header; 
+export default Header;

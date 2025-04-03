@@ -1,0 +1,21 @@
+@use '@/styles/variables' as v;
+@use '@/styles/mixins' as m;
+
+.dark-mode-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: v.$text-muted;
+  font-size: 1.25rem;
+  padding: 0.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: v.$transition-base;
+  
+  &:hover {
+    color: v.$text-light;
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+}

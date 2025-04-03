@@ -18,6 +18,22 @@
     @media (min-width: v.$breakpoint-xl) {
       @content;
     }
+  } @else if $breakpoint == 'max-sm' {
+    @media (max-width: (v.$breakpoint-sm - 1px)) {
+      @content;
+    }
+  } @else if $breakpoint == 'max-md' {
+    @media (max-width: (v.$breakpoint-md - 1px)) {
+      @content;
+    }
+  } @else if $breakpoint == 'max-lg' {
+    @media (max-width: (v.$breakpoint-lg - 1px)) {
+      @content;
+    }
+  } @else if $breakpoint == 'max-xl' {
+    @media (max-width: (v.$breakpoint-xl - 1px)) {
+      @content;
+    }
   }
 }
 

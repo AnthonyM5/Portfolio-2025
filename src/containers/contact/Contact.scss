@@ -149,7 +149,7 @@
       width: 100%;
       
       &:hover:not(:disabled) {
-        background-color: color.adjust(v.$primary-color, $lightness: -10%);
+        background-color: v.$primary-color-dark; // Use the new variable
       }
       
       &:disabled {

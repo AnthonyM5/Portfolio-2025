@@ -128,7 +128,7 @@
         transition: v.$transition-base;
         
         &:hover {
-          background-color: color.adjust(v.$primary-color, $lightness: -30%, $alpha: -0.7);
+          background-color: rgba(59, 130, 246, 0.3); // Keep the static color
           color: v.$text-light;
         }
       }

@@ -106,22 +106,22 @@
         justify-content: center;
         opacity: 0;
         transition: opacity 0.3s ease;
-      }
-      
-      .project-links {
-        display: flex;
-        gap: v.$spacing-unit;
         
-        a {
-          padding: 0.5rem 1rem;
-          background-color: v.$primary-color;
-          color: white;
-          border-radius: 4px;
-          font-size: v.$font-size-sm;
-          transition: background-color 0.3s ease;
+        .project-links {
+          display: flex;
+          gap: v.$spacing-unit;
           
-          &:hover {
-            background-color: color.adjust(v.$primary-color, $lightness: -10%);
+          a {
+            padding: 0.5rem 1rem;
+            background-color: v.$primary-color;
+            color: white;
+            border-radius: 4px;
+            font-size: v.$font-size-sm;
+            transition: background-color 0.3s ease;
+            
+            &:hover {
+              background-color: #3071d9; // Replace color.adjust with hardcoded darker primary color
+            }
           }
         }
       }

@@ -28,7 +28,7 @@
   }
   
   &:hover {
-    background-color: color.adjust(v.$primary-color, $lightness: -10%);
+    background-color: v.$primary-color-dark; // Use the new variable
     transform: translateY(-3px);
   }
   

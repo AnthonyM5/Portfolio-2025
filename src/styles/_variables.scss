@@ -1,19 +1,20 @@
 // Colors
-$primary-color: #3b82f6;
-$secondary-color: #6366f1;
+$primary-color: var(--primary-color);
+$primary-color-dark: var(--primary-color-dark); // Add the darker variant
+$secondary-color: var(--secondary-color);
 
 // Background colors
-$background-dark: #111827;
-$background-darker: #0a0f1c;
-$background-light: #1f2937;
+$background-dark: var(--background-dark);
+$background-darker: var(--background-darker);
+$background-light: var(--background-light);
 
 // Text colors
-$text-light: #f3f4f6;
-$text-muted: #9ca3af;
-$text-dark: #1f2937;
+$text-light: var(--text-light);
+$text-muted: var(--text-muted);
+$text-dark: var(--text-dark);
 
 // Border colors
-$border-color: rgba(255, 255, 255, 0.1);
+$border-color: var(--border-color);
 
 // Spacing
 $spacing-unit: 1rem;
@@ -53,3 +54,32 @@ $breakpoint-sm: 576px !default;
 $breakpoint-md: 768px !default;
 $breakpoint-lg: 992px !default;
 $breakpoint-xl: 1200px !default;
+
+// Define theme variables for both light and dark modes
+:root {
+  // Light mode colors
+  --primary-color: #3b82f6;
+  --primary-color-dark: #3071d9; // Add dark variant of primary color
+  --secondary-color: #6366f1;
+  --background-dark: #f7f7f7;
+  --background-darker: #ffffff;
+  --background-light: #eaeaea;
+  --text-light: #333333;
+  --text-muted: #666666;
+  --text-dark: #111111;
+  --border-color: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] {
+  // Dark mode colors
+  --primary-color: #3b82f6;
+  --primary-color-dark: #3071d9; // Add dark variant of primary color
+  --secondary-color: #6366f1;
+  --background-dark: #111827;
+  --background-darker: #0a0f1c;
+  --background-light: #1f2937;
+  --text-light: #f3f4f6;
+  --text-muted: #9ca3af;
+  --text-dark: #1f2937;
+  --border-color: rgba(255, 255, 255, 0.1);
+}

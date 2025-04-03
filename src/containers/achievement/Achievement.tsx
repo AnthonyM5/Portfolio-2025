@@ -67,12 +67,6 @@ export const Achievement = () => {
               <div className="achievement-content">
                 <h3>{achievement.title}</h3>
                 <p>{achievement.description}</p>
-                {achievement.date && <span className="achievement-date">{achievement.date}</span>}
-                {achievement.link && (
-                  <a href={achievement.link} target="_blank" rel="noreferrer" className="achievement-link">
-                    Learn more
-                  </a>
-                )}
               </div>
             </motion.div>
           ))}
