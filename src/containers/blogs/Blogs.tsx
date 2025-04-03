@@ -29,7 +29,7 @@ export const Blogs = () => {
   };
 
   return (
-    <section className="blogs-section" id="blogs" ref={ref}>
+    <section className="blogs-section" id="industries" ref={ref}>
       <div className="blogs-container">
         <motion.h2 
           className="section-title"

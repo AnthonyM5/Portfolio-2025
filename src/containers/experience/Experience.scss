@@ -1,0 +1,46 @@
+@use '@/styles/variables' as v;
+@use '@/styles/mixins' as m;
+
+.experience-section {
+  @include m.section-padding;
+  background-color: v.$background-dark;
+  
+  .experience-container {
+    @include m.container;
+  }
+  
+  .section-title {
+    text-align: center;
+    font-size: v.$font-size-3xl;
+    color: v.$text-light;
+    margin-bottom: v.$spacing-unit;
+  }
+  
+  .section-subtitle {
+    text-align: center;
+    color: v.$text-muted;
+    max-width: 600px;
+    margin: 0 auto v.$spacing-unit * 3;
+  }
+  
+  .experience-timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 24px;
+      width: 2px;
+      background-color: v.$border-color;
+      display: none;
+      
+      @include m.respond-to('md') {
+        display: block;
+      }
+    }
+  }
+}

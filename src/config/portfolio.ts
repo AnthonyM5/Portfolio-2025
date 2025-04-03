@@ -43,16 +43,27 @@ interface SocialLink {
   icon: string;
 }
 
+interface Experience {
+  company: string;
+  position: string;
+  logo?: string;
+  duration: string;
+  location: string;
+  description: string[];
+  technologies: string[];
+  website?: string;
+}
+
 export const portfolio = {
   firstName: "Anthony",
   lastName: "Mai",
-  title: "Software Engineer",
-  description: "Building digital experiences with code and creativity",
+  title: "Product Engineering Specialist",
+  description: "Front-end developer specializing in Angular, React.js, and Ionic for web and mobile applications",
   resumeLink: "/Resume_2025.pdf",
   
   greeting: {
     title: "Hi, I'm Anthony Mai",
-    subtitle: "A passionate software engineer with expertise in building modern web applications and solving complex problems."
+    subtitle: "I'm an engineer specializing in front-end development with Angular, (Ionic) and React.js. I've built single-page applications (SPAs) and worked on mobile apps, focusing on performance and seamless user experiences in multiple industries including retail/eCommerce/logistics, B2B/B2C, early childhood education, and banking."
   },
 
   social: {
@@ -62,183 +73,224 @@ export const portfolio = {
   
   skills: {
     title: "Skills",
-    subtitle: "My technical expertise and tools I work with",
+    subtitle: "My technical expertise and industry experience",
     skills: [
       {
         name: "Frontend Development",
-        description: "Building responsive and interactive user interfaces with modern frameworks",
+        description: "Building responsive web and mobile apps with Angular, React.js, and Ionic",
         icon: "fa-solid fa-code"
       },
       {
-        name: "React.js",
-        description: "Creating dynamic and efficient user interfaces with React ecosystem",
+        name: "Angular & Ionic",
+        description: "Creating performant applications with NgRX/RxJS-based state management",
+        icon: "fa-brands fa-angular"
+      },
+      {
+        name: "React.js/Native",
+        description: "Developing modern applications with React ecosystem technologies",
         icon: "fa-brands fa-react"
       },
       {
-        name: "JavaScript/TypeScript",
-        description: "Developing robust applications with modern JavaScript and TypeScript",
+        name: "TypeScript",
+        description: "Writing type-safe, maintainable code for complex applications",
         icon: "fa-brands fa-js"
       },
       {
-        name: "Node.js",
-        description: "Building scalable backend services and API integrations",
-        icon: "fa-brands fa-node-js"
+        name: "API Integration",
+        description: "Working with middleware platforms like Hybris and Apigee for SAP based web apps",
+        icon: "fa-solid fa-plug"
       },
       {
-        name: "Python",
-        description: "Developing applications and scripts for various purposes including data analysis",
-        icon: "fa-brands fa-python"
+        name: "Testing",
+        description: "Implementing Jest and Cypress for unit and regression testing",
+        icon: "fa-solid fa-vial"
       },
       {
-        name: "CI/CD",
-        description: "Setting up continuous integration and deployment pipelines",
-        icon: "fa-solid fa-rocket"
+        name: "Backend Development",
+        description: "Building services with Node.js and Ruby on Rails",
+        icon: "fa-solid fa-server"
       },
       {
         name: "AWS",
-        description: "Deploying and managing cloud infrastructure and services",
+        description: "Cloud Practitioner certified with experience in deployment and services",
         icon: "fa-brands fa-aws"
-      },
-      {
-        name: "UI/UX Design",
-        description: "Creating intuitive and appealing user experiences",
-        icon: "fa-solid fa-palette"
       }
     ]
   },
   
   projects: {
     title: "Projects",
-    subtitle: "A showcase of my recent work and personal projects",
-    categories: ["Web", "Mobile", "Backend", "Design"],
+    subtitle: "A showcase of my professional work and experience",
+    categories: ["Web", "Mobile", "Integration", "Analytics"],
     projects: [
       {
-        title: "Personal Blog",
-        description: "A blog built with Gatsby and React to share technical articles and thoughts on web development.",
-        image: "/assets/image/placeholder.jpg",
-        technologies: ["React", "Gatsby", "GraphQL", "Netlify"],
-        demoLink: "https://anthonym5.github.io/my-awesome-blog/",
-        codeLink: "https://github.com/AnthonyM5/my-awesome-blog",
-        category: "Web"
-      },
-      {
-        title: "Portfolio Website",
-        description: "A modern portfolio website built with React and Framer Motion to showcase my skills and projects.",
-        image: "/assets/image/placeholder.jpg",
-        technologies: ["React", "TypeScript", "SCSS", "Framer Motion"],
-        demoLink: "https://anthonym-portfolio.netlify.app/",
-        codeLink: "https://github.com/AnthonyM5/portfolio-2025",
-        category: "Web"
-      },
-      {
-        title: "E-Commerce Platform",
-        description: "A full-stack e-commerce application with product management, cart functionality, and payment integration.",
-        image: "/assets/image/placeholder.jpg",
-        technologies: ["React", "Node.js", "Express", "MongoDB", "Stripe"],
-        demoLink: "https://anthonym-shop.herokuapp.com",
-        codeLink: "https://github.com/AnthonyM5/ecommerce-platform",
-        category: "Web"
-      },
-      {
-        title: "Task Management App",
-        description: "A mobile application for managing daily tasks and productivity with notifications and reminders.",
-        image: "/assets/image/placeholder.jpg",
-        technologies: ["React Native", "Redux", "Firebase"],
-        demoLink: "https://expo.io/@anthonym/task-manager",
-        codeLink: "https://github.com/AnthonyM5/task-manager-app",
+        title: "Educational Mobile App Modernization",
+        description: "Successfully modernized a legacy application for an education support services company, leveraging Angular/Ionic and NgRX/RxJS-based state management, resulting in notable performance improvements and enhanced user experience.",
+        image: "/assets/image/education-app.jpg",
+        technologies: ["Angular", "Ionic", "NgRX", "RxJS", "Jest"],
         category: "Mobile"
       },
       {
-        title: "API Gateway Service",
-        description: "A backend service that handles API routing, authentication, and rate limiting for microservices.",
-        image: "/assets/image/placeholder.jpg",
-        technologies: ["Node.js", "Express", "JWT", "Redis"],
-        codeLink: "https://github.com/AnthonyM5/api-gateway",
-        category: "Backend"
+        title: "eCommerce Integration",
+        description: "Integrated middleware platforms (Hybris/Mirakl) for SAP based eCommerce web app, collaborating with Hybris/Apigee developers to integrate APIs and troubleshoot bugs during UAT testing.",
+        image: "/assets/image/ecommerce.jpg",
+        technologies: ["JavaScript", "SAP", "Hybris", "Apigee", "API Integration"],
+        category: "Integration"
       },
       {
-        title: "Dashboard UI Kit",
-        description: "A collection of reusable UI components for creating admin dashboards and data visualization interfaces.",
-        image: "/assets/image/placeholder.jpg",
-        technologies: ["React", "Storybook", "SCSS", "Chart.js"],
-        demoLink: "https://anthonym-ui-kit.netlify.app",
-        codeLink: "https://github.com/AnthonyM5/dashboard-ui-kit",
-        category: "Design"
+        title: "Learning Platform Enhancement",
+        description: "Developed a React.js MVP for a feature enhancement on a synchronous learning/training platform, using Redis and Socket.io to create a synchronous experience for users on mobile devices.",
+        image: "/assets/image/learning-platform.jpg",
+        technologies: ["React.js", "Node.js", "Redis", "Socket.io", "Heroku"],
+        category: "Web"
+      },
+      {
+        title: "Banking Analytics Implementation",
+        description: "Added analytics to a massive online Angular web application for banking customers to track user flows using RxJS to gather metrics for Domestic Wires and Cashiers Checks, visualized in Google Analytics.",
+        image: "/assets/image/banking.jpg",
+        technologies: ["Angular", "RxJS", "Google Analytics", "TypeScript"],
+        category: "Analytics"
+      }
+    ]
+  },
+  
+  experience: {
+    title: "Professional Experience",
+    subtitle: "My career journey in software development",
+    experiences: [
+      {
+        company: "Education Support Services Company",
+        position: "Mobile App Developer",
+        logo: "/assets/image/education-logo.png",
+        duration: "2021 - Present",
+        location: "New York, NY",
+        description: [
+          "Successfully modernized the legacy application, leveraging Angular/Ionic and the NgRX/RxJS-based state management, resulting in notable performance improvements and enhanced user experience.",
+          "Worked with several libraries to increase re-usability across multiple apps including a design system with Ionic to create shared components.",
+          "Created a middleware layer (Next.js/Socket.io) for communications between staff/parents.",
+          "Through rigorous focus on code quality, reduced complexity and code reviews we fostered a collaborative environment within the development team.",
+          "Emphasis on Unit Testing with Jest helped to document issues and prevent regressions."
+        ],
+        technologies: ["Angular", "Ionic", "NgRX", "RxJS", "Jest", "Next.js", "Socket.io"],
+        website: "#"
+      },
+      {
+        company: "Mirakl/Hybris Ecommerce Marketplace",
+        position: "Web Developer",
+        logo: "/assets/image/ecommerce-logo.png",
+        duration: "2019 - 2021",
+        location: "New York, NY",
+        description: [
+          "Integrated middleware platforms (Hybris/Mirakl) for SAP based eCommerce web app as part of the frontend development team.",
+          "Worked with Hybris/Apigee developers to integrate APIs and troubleshoot bugs during UAT testing.",
+          "Maintained web standards, design and usability, and best practices in web screen design.",
+          "Collaborated frequently with client demos and walkthroughs to align features and resolve bugs.",
+          "Successfully integrated middleware API layers (Apigee) to source and update data through web application and meet functional requirements."
+        ],
+        technologies: ["JavaScript", "SAP", "Hybris", "Apigee", "API Integration"],
+        website: "#"
+      },
+      {
+        company: "Synchronous Learning/Training Platform",
+        position: "Full Stack Developer",
+        logo: "/assets/image/learning-logo.png",
+        duration: "2018 - 2019",
+        location: "New York, NY",
+        description: [
+          "Resolved access issues (especially for regions like China) by creating and deploying a custom Heroku Domain for existing Node.js service.",
+          "Developed a React.js MVP for a feature enhancement for an in-person data collection initiative.",
+          "Used Redis and Socket.io to create a synchronous experience for users on a mobile device.",
+          "Worked through SAST assessment and resolved 100% of open findings related to the scan.",
+          "Resolved security issues including restricting ports, unnecessary HTTP methods and headers."
+        ],
+        technologies: ["React.js", "Node.js", "Redis", "Socket.io", "Heroku", "Security Assessment"],
+        website: "#"
+      },
+      {
+        company: "Financial Services/Banking",
+        position: "Frontend Developer",
+        logo: "/assets/image/banking-logo.png",
+        duration: "2017 - 2018",
+        location: "New York, NY",
+        description: [
+          "Supported an effort to add analytics to a massive online Angular web application for banking customers.",
+          "Used RxJS to track user flows for Domestic Wires and Cashiers Checks and visualized in Google Analytics.",
+          "Developed UI/UX features (Angular) with reactive state (NGRX) for an internal web application used by bank associates.",
+          "Assisted customers with their debit cards through the developed application.",
+          "Resolved production level bugs in a timely manner to reduce friction for bank associates.",
+          "Worked with product managers to streamline development work to prioritize impact in each sprint."
+        ],
+        technologies: ["Angular", "RxJS", "NGRX", "Google Analytics", "TypeScript"],
+        website: "#"
       }
     ]
   },
   
   achievements: {
-    title: "Achievements",
-    subtitle: "Recognition and milestones in my professional journey",
+    title: "Education & Certifications",
+    subtitle: "Academic background and professional qualifications",
     achievements: [
       {
-        title: "AWS Certified Developer",
-        description: "Earned AWS Developer Associate certification demonstrating expertise in developing, deploying, and debugging cloud-based applications.",
-        date: "June 2023",
+        title: "CUNY School of Professional Studies",
+        description: "Information Systems",
+        icon: "fa-solid fa-graduation-cap"
+      },
+      {
+        title: "AWS Cloud Practitioner",
+        description: "Certified in fundamental AWS cloud knowledge and services",
         icon: "fa-brands fa-aws"
       },
       {
-        title: "Top Contributor Award",
-        description: "Recognized as a top contributor to the company's open-source projects, with over 200 merged pull requests.",
-        date: "December 2022",
-        icon: "fa-solid fa-trophy"
+        title: "Full Stack Development",
+        description: "Specialized in both frontend and backend technologies across multiple stacks",
+        icon: "fa-solid fa-layer-group"
       },
       {
-        title: "Speaker at React Conference",
-        description: "Delivered a talk on 'Optimizing React Performance' at the annual React Developers Conference.",
-        date: "September 2022",
-        link: "https://reactconf.org/speakers/anthony-mai",
-        icon: "fa-solid fa-microphone"
-      },
-      {
-        title: "Published Technical Article",
-        description: "Published an in-depth article on 'Modern Frontend Architecture' in a leading tech magazine.",
-        date: "March 2022",
-        link: "https://techmagazine.com/articles/modern-frontend-architecture",
-        icon: "fa-solid fa-newspaper"
+        title: "Testing & Quality Assurance",
+        description: "Jest and Cypress testing frameworks for comprehensive application testing",
+        icon: "fa-solid fa-check-circle"
       }
     ]
   },
   
   blogs: {
-    title: "Blog Posts",
-    subtitle: "My thoughts and ideas on technology, development, and more",
-    viewAllLink: "https://anthonym5.github.io/my-awesome-blog/",
+    title: "Industry Experience",
+    subtitle: "Sectors where I've applied my development expertise",
+    viewAllLink: "#",
     blogs: [
       {
-        title: "The Evolution of React: From Hooks to Server Components",
-        summary: "An exploration of how React has evolved over the years and what the future holds for the popular library.",
-        date: "May 15, 2023",
-        category: "React",
-        image: "/assets/image/placeholder.jpg",
-        url: "https://anthonym5.github.io/my-awesome-blog/react-evolution"
+        title: "Retail/eCommerce/Logistics",
+        summary: "Developing eCommerce platforms with middleware integration and optimized user experiences.",
+        date: "2019 - 2021",
+        category: "Industry",
+        image: "/assets/image/retail.jpg",
+        url: "#"
       },
       {
-        title: "Mastering TypeScript: Advanced Types and Patterns",
-        summary: "A deep dive into advanced TypeScript features that can make your code more robust and maintainable.",
-        date: "April 2, 2023",
-        category: "TypeScript",
-        image: "/assets/image/placeholder.jpg",
-        url: "https://anthonym5.github.io/my-awesome-blog/mastering-typescript"
+        title: "Early Childhood Education",
+        summary: "Building mobile applications for educational support services with enhanced communication features.",
+        date: "2021 - Present",
+        category: "Industry",
+        image: "/assets/image/education.jpg",
+        url: "#"
       },
       {
-        title: "Building Microservices with Node.js and Docker",
-        summary: "A practical guide to creating scalable microservices architecture using Node.js and containerization.",
-        date: "March 10, 2023",
-        category: "Backend",
-        image: "/assets/image/placeholder.jpg",
-        url: "https://anthonym5.github.io/my-awesome-blog/microservices-nodejs"
+        title: "Financial Services/Banking",
+        summary: "Implementing analytics and developing secure, high-performance applications for banking customers.",
+        date: "2017 - 2018",
+        category: "Industry",
+        image: "/assets/image/finance.jpg",
+        url: "#"
       }
     ]
   },
   
   contact: {
     title: "Get in Touch",
-    subtitle: "Have a project in mind or just want to say hello? Feel free to reach out!",
-    email: "anthony.mai@example.com",
-    phone: "+1 (555) 123-4567",
-    location: "San Francisco, CA"
+    subtitle: "Interested in working together or have a question? Feel free to reach out!",
+    email: "thereisnoneo1@gmail.com",
+    phone: "917-887-0970",
+    location: "Astoria, NY"
   },
   
   socialLinks: [
@@ -253,15 +305,10 @@ export const portfolio = {
       icon: "fa-brands fa-linkedin"
     },
     {
-      name: "Twitter",
-      url: "https://twitter.com/anthonymai",
-      icon: "fa-brands fa-twitter"
-    },
-    {
-      name: "Medium",
-      url: "https://medium.com/@anthonymai",
-      icon: "fa-brands fa-medium"
+      name: "Portfolio",
+      url: "https://anthonym-portfolio.netlify.app",
+      icon: "fa-solid fa-globe"
     }
   ],
-  email: 'anthony.mai530@gmail.com'
+  email: 'thereisnoneo1@gmail.com'
 };

@@ -15,6 +15,8 @@ import { Projects } from "./containers/projects/Projects";
 import { Achievement } from "./containers/achievement/Achievement";
 import { Blogs } from "./containers/blogs/Blogs";
 import { Contact } from "./containers/contact/Contact";
+import ExperienceCard from "./components/experienceCard/ExperienceCard";
+import { Experience } from "./containers/experience/Experience";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -39,6 +41,7 @@ function App() {
           <main>
             <Greeting />
             <Skills />
+            <Experience />
             <Projects />
             <Achievement />
             <Blogs />

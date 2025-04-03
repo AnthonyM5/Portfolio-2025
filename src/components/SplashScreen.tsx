@@ -43,7 +43,7 @@ const SplashScreen = () => {
           animate={{ scale: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          AM
+          Anthony Mai
         </motion.div>
       </div>
     </motion.div>

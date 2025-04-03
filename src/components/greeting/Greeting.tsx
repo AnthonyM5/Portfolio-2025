@@ -47,9 +47,9 @@ export const Greeting = () => {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="greeting-buttons"
           >
-            <a href="#contact" className="primary-button">Get In Touch</a>
+            <a href="#contact" className="primary-button">Contact Me</a>
             <a href={portfolio.resumeLink} target="_blank" rel="noopener noreferrer" className="secondary-button">
-              See My Resume
+              View Resume
             </a>
           </motion.div>
         </div>

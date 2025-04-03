@@ -1,0 +1,137 @@
+@use '@/styles/variables' as v;
+@use '@/styles/mixins' as m;
+@use "sass:color";
+
+.experience-card {
+  background-color: v.$background-light;
+  border-radius: 8px;
+  padding: v.$spacing-unit * 2;
+  margin-bottom: v.$spacing-unit * 2;
+  border: 1px solid v.$border-color;
+  transition: v.$transition-base;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    border-color: v.$primary-color;
+  }
+  
+  .experience-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: v.$spacing-unit * 1.5;
+    
+    .company-logo {
+      width: 50px;
+      height: 50px;
+      margin-right: v.$spacing-unit;
+      overflow: hidden;
+      border-radius: 8px;
+      flex-shrink: 0;
+      background-color: white;
+      padding: 5px;
+      
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+    
+    .experience-title {
+      flex: 1;
+      
+      h3 {
+        font-size: v.$font-size-lg;
+        font-weight: v.$font-weight-bold;
+        color: v.$text-light;
+        margin-bottom: 0.25rem;
+      }
+      
+      .company-info {
+        display: flex;
+        flex-direction: column;
+        
+        @include m.respond-to('md') {
+          flex-direction: row;
+          align-items: center;
+        }
+        
+        h4 {
+          font-size: v.$font-size-base;
+          color: v.$primary-color;
+          margin-bottom: 0.25rem;
+          font-weight: v.$font-weight-medium;
+          
+          a {
+            color: v.$primary-color;
+            text-decoration: none;
+            
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+          
+          @include m.respond-to('md') {
+            margin-right: v.$spacing-unit;
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+  }
+  
+  .experience-meta {
+    font-size: v.$font-size-sm;
+    color: v.$text-muted;
+    display: flex;
+    align-items: center;
+  }
+  
+  .experience-content {
+    margin-bottom: v.$spacing-unit * 1.5;
+    
+    .responsibilities {
+      list-style-type: none;
+      padding-left: 1.5rem;
+      
+      li {
+        color: v.$text-muted;
+        font-size: v.$font-size-sm;
+        margin-bottom: 0.75rem;
+        position: relative;
+        line-height: v.$line-height-relaxed;
+        
+        &::before {
+          content: "•";
+          position: absolute;
+          left: -1.5rem;
+          color: v.$primary-color;
+          font-size: 1.2rem;
+        }
+      }
+    }
+  }
+  
+  .experience-footer {
+    .technologies {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      
+      .tech-tag {
+        background-color: v.$background-dark;
+        color: v.$text-muted;
+        font-size: v.$font-size-xs;
+        padding: 0.25rem 0.5rem;
+        border-radius: 4px;
+        transition: v.$transition-base;
+        
+        &:hover {
+          background-color: color.adjust(v.$primary-color, $lightness: -30%, $alpha: -0.7);
+          color: v.$text-light;
+        }
+      }
+    }
+  }
+}
