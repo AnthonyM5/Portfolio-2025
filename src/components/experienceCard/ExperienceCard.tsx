@@ -65,7 +65,7 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
       
       <div className="experience-footer">
         <div className="technologies">
-          {technologies.map((tech, i) => (
+          {technologies.reverse().map((tech, i) => (
             <span key={i} className="tech-tag">{tech}</span>
           ))}
         </div>
