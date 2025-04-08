@@ -7,7 +7,12 @@ const Contact: React.FC = () => {
       <div className="container mx-auto px-4">
         <h2 className="text-4xl font-bold text-center mb-12">Contact Me</h2>
         <div className="flex flex-col md:flex-row items-center">
-          <div className="md:w-1/2 mb-8 md:mb-0">
+          <div className="md:w-1/2 mb-8 md:mb-0 relative">
+            <img 
+              src="/assets/images/contact-mail-dark.svg" 
+              alt="Contact"
+              className="absolute top-0 left-0 w-full h-full object-contain"
+            />
             <LottieAnimation 
               animationPath="/assets/lottie/email.json"
               height="400px" 

@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { useForm, ValidationError } from '@formspree/react';
 import { portfolio } from '@/config/portfolio';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './Contact.scss';
 
 export const Contact = () => {
@@ -72,8 +73,14 @@ export const Contact = () => {
             
             <div className="social-links">
               {portfolio.socialLinks.map((link, index) => (
-                <a key={index} href={link.url} target="_blank" rel="noreferrer" aria-label={link.name}>
-                  <i className={link.icon}></i>
+                <a 
+                  key={index} 
+                  href={link.url} 
+                  target="_blank" 
+                  rel="noreferrer" 
+                  aria-label={link.name}
+                >
+                  <FontAwesomeIcon icon={link.icon} />
                 </a>
               ))}
             </div>

@@ -1,3 +1,7 @@
+import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { faGlobe } from '@fortawesome/free-solid-svg-icons';
+import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+
 interface Social {
   github: string;
   linkedin: string;
@@ -40,7 +44,7 @@ interface Blog {
 interface SocialLink {
   name: string;
   url: string;
-  icon: string;
+  icon: IconDefinition;
 }
 
 interface Experience {
@@ -62,7 +66,7 @@ export const portfolio = {
   
   greeting: {
     title: "Hi, I'm Anthony Mai",
-    subtitle: "I'm an engineer specializing in front-end development with Angular, (Ionic) and React.js. I've built single-page applications (SPAs) and worked on mobile apps, focusing on performance and seamless user experiences in multiple industries including retail/eCommerce/logistics, B2B/B2C, early childhood education, and banking."
+    subtitle: "Frontend Engineer with over 3 years of consulting experience at Accenture, delivering scalable, high-impact web and mobile applications across education, e-commerce, and banking domains. Proven track record in Angular/NgRX and React.js development, state management, and cross-platform UI/UX optimization. Skilled in managing multiple frontend libraries across large codebases using modular architectures, Nx monorepos, and custom design systems. Adept at implementing real-time features with Socket.io/Redis, building analytics pipelines with RxJS, and integrating third-party services like Google Analytics, Stripe, and DNS configurations. Known for debugging complex production issues, driving agile ceremonies, and collaborating with cross-functional teams to ship enterprise-grade software that is performant, maintainable, and secure."
   },
 
   social: {
@@ -292,17 +296,17 @@ export const portfolio = {
     {
       name: "GitHub",
       url: "https://github.com/AnthonyM5",
-      icon: "fa-brands fa-github"
+      icon: faGithub
     },
     {
       name: "LinkedIn",
       url: "https://linkedin.com/in/anthonymai5",
-      icon: "fa-brands fa-linkedin"
+      icon: faLinkedin
     },
     {
       name: "Portfolio",
       url: "https://anthonym-portfolio.netlify.app",
-      icon: "fa-solid fa-globe"
+      icon: faGlobe
     }
   ],
   email: 'thereisnoneo1@gmail.com'

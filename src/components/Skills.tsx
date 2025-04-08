@@ -54,9 +54,14 @@ const Skills: React.FC = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-5xl font-bold mb-8">Skills & Proficiency</h2>
-          <div className="w-64 h-64 mx-auto mb-8">
+          <div className="w-64 h-64 mx-auto mb-8 relative">
+            <img 
+              src="/assets/images/programmer.svg" 
+              alt="Programmer"
+              className="absolute top-0 left-0 w-full h-full object-contain"
+            />
             <LottieAnimation 
-              animationPath="/assets/lottie/codingPerson.json" 
+              animationPath="/assets/lottie/technology.json"
               height="200px"
               className="animation-visible"
             />

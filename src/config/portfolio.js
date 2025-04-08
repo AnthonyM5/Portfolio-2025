@@ -1,3 +1,5 @@
+import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { faGlobe } from '@fortawesome/free-solid-svg-icons';
 export var portfolio = {
     firstName: "Anthony",
     lastName: "Mai",
@@ -6,7 +8,7 @@ export var portfolio = {
     resumeLink: "/Resume_2025.pdf",
     greeting: {
         title: "Hi, I'm Anthony Mai",
-        subtitle: "I'm an engineer specializing in front-end development with Angular, (Ionic) and React.js. I've built single-page applications (SPAs) and worked on mobile apps, focusing on performance and seamless user experiences in multiple industries including retail/eCommerce/logistics, B2B/B2C, early childhood education, and banking."
+        subtitle: "Frontend Engineer with over 3 years of consulting experience at Accenture, delivering scalable, high-impact web and mobile applications across education, e-commerce, and banking domains. Proven track record in Angular/NgRX and React.js development, state management, and cross-platform UI/UX optimization. Skilled in managing multiple frontend libraries across large codebases using modular architectures, Nx monorepos, and custom design systems. Adept at implementing real-time features with Socket.io/Redis, building analytics pipelines with RxJS, and integrating third-party services like Google Analytics, Stripe, and DNS configurations. Known for debugging complex production issues, driving agile ceremonies, and collaborating with cross-functional teams to ship enterprise-grade software that is performant, maintainable, and secure."
     },
     social: {
         github: 'AnthonyM5',
@@ -66,7 +68,7 @@ export var portfolio = {
             {
                 title: "Educational Mobile App Modernization",
                 description: "Successfully modernized a legacy application for an education support services company, leveraging Angular/Ionic and NgRX/RxJS-based state management, resulting in notable performance improvements and enhanced user experience.",
-                image: "assets/image/mybrightday.jpg",
+                image: "assets/images/mybrightday.jpg",
                 technologies: ["Angular", "Ionic", "NgRX", "RxJS", "Jest"],
                 category: "Mobile"
             },
@@ -98,33 +100,19 @@ export var portfolio = {
         subtitle: "My career journey in software development",
         experiences: [
             {
-                company: "Education Support Services Company",
-                position: "Mobile App Developer",
-                logo: "assets/images/mybrightday.jpg",
+                company: "Financial Services/Banking",
+                position: "Frontend Developer",
+                logo: "assets/images/Banking-Finance.png",
                 location: "New York, NY",
                 description: [
-                    "Successfully modernized the legacy application, leveraging Angular/Ionic and the NgRX/RxJS-based state management, resulting in notable performance improvements and enhanced user experience.",
-                    "Worked with several libraries to increase re-usability across multiple apps including a design system with Ionic to create shared components.",
-                    "Created a middleware layer (Next.js/Socket.io) for communications between staff/parents.",
-                    "Through rigorous focus on code quality, reduced complexity and code reviews we fostered a collaborative environment within the development team.",
-                    "Emphasis on Unit Testing with Jest helped to document issues and prevent regressions."
+                    "Supported an effort to add analytics to a massive online Angular web application for banking customers.",
+                    "Used RxJS to track user flows for Domestic Wires and Cashiers Checks and visualized in Google Analytics.",
+                    "Developed UI/UX features (Angular) with reactive state (NGRX) for an internal web application used by bank associates.",
+                    "Assisted customers with their debit cards through the developed application.",
+                    "Resolved production level bugs in a timely manner to reduce friction for bank associates.",
+                    "Worked with product managers to streamline development work to prioritize impact in each sprint."
                 ],
-                technologies: ["Angular", "Ionic", "NgRX", "RxJS", "Jest", "Next.js", "Socket.io"],
-                website: "#"
-            },
-            {
-                company: "Mirakl/Hybris Ecommerce Marketplace",
-                position: "Web Developer",
-                logo: "assets/images/SGWS.jpg",
-                location: "New York, NY",
-                description: [
-                    "Integrated middleware platforms (Hybris/Mirakl) for SAP based eCommerce web app as part of the frontend development team.",
-                    "Worked with Hybris/Apigee developers to integrate APIs and troubleshoot bugs during UAT testing.",
-                    "Maintained web standards, design and usability, and best practices in web screen design.",
-                    "Collaborated frequently with client demos and walkthroughs to align features and resolve bugs.",
-                    "Successfully integrated middleware API layers (Apigee) to source and update data through web application and meet functional requirements."
-                ],
-                technologies: ["JavaScript", "SAP", "Hybris", "Apigee", "API Integration"],
+                technologies: ["Angular", "RxJS", "NGRX", "Google Analytics", "TypeScript"],
                 website: "#"
             },
             {
@@ -143,19 +131,33 @@ export var portfolio = {
                 website: "#"
             },
             {
-                company: "Financial Services/Banking",
-                position: "Frontend Developer",
-                logo: "assets/image/Banking-Finance.png",
+                company: "Mirakl/Hybris Ecommerce Marketplace",
+                position: "Web Developer",
+                logo: "assets/images/SGWS.jpg",
                 location: "New York, NY",
                 description: [
-                    "Supported an effort to add analytics to a massive online Angular web application for banking customers.",
-                    "Used RxJS to track user flows for Domestic Wires and Cashiers Checks and visualized in Google Analytics.",
-                    "Developed UI/UX features (Angular) with reactive state (NGRX) for an internal web application used by bank associates.",
-                    "Assisted customers with their debit cards through the developed application.",
-                    "Resolved production level bugs in a timely manner to reduce friction for bank associates.",
-                    "Worked with product managers to streamline development work to prioritize impact in each sprint."
+                    "Integrated middleware platforms (Hybris/Mirakl) for SAP based eCommerce web app as part of the frontend development team.",
+                    "Worked with Hybris/Apigee developers to integrate APIs and troubleshoot bugs during UAT testing.",
+                    "Maintained web standards, design and usability, and best practices in web screen design.",
+                    "Collaborated frequently with client demos and walkthroughs to align features and resolve bugs.",
+                    "Successfully integrated middleware API layers (Apigee) to source and update data through web application and meet functional requirements."
                 ],
-                technologies: ["Angular", "RxJS", "NGRX", "Google Analytics", "TypeScript"],
+                technologies: ["JavaScript", "SAP", "Hybris", "Apigee", "API Integration"],
+                website: "#"
+            },
+            {
+                company: "Education Support Services Company",
+                position: "Mobile App Developer",
+                logo: "assets/images/mybrightday.jpg",
+                location: "New York, NY",
+                description: [
+                    "Successfully modernized the legacy application, leveraging Angular/Ionic and the NgRX/RxJS-based state management, resulting in notable performance improvements and enhanced user experience.",
+                    "Worked with several libraries to increase re-usability across multiple apps including a design system with Ionic to create shared components.",
+                    "Created a middleware layer (Next.js/Socket.io) for communications between staff/parents.",
+                    "Through rigorous focus on code quality, reduced complexity and code reviews we fostered a collaborative environment within the development team.",
+                    "Emphasis on Unit Testing with Jest helped to document issues and prevent regressions."
+                ],
+                technologies: ["Angular", "Ionic", "NgRX", "RxJS", "Jest", "Next.js", "Socket.io"],
                 website: "#"
             }
         ]
@@ -204,7 +206,7 @@ export var portfolio = {
                 summary: "Building mobile applications for educational support services with enhanced communication features.",
                 date: "",
                 category: "Industry",
-                image: "assets/image/mybrightday.jpg",
+                image: "assets/images/mybrightday.jpg",
                 url: "#"
             },
             {
@@ -228,17 +230,17 @@ export var portfolio = {
         {
             name: "GitHub",
             url: "https://github.com/AnthonyM5",
-            icon: "fa-brands fa-github"
+            icon: faGithub
         },
         {
             name: "LinkedIn",
             url: "https://linkedin.com/in/anthonymai5",
-            icon: "fa-brands fa-linkedin"
+            icon: faLinkedin
         },
         {
             name: "Portfolio",
             url: "https://anthonym-portfolio.netlify.app",
-            icon: "fa-solid fa-globe"
+            icon: faGlobe
         }
     ],
     email: 'thereisnoneo1@gmail.com'
