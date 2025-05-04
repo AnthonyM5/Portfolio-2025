@@ -2,6 +2,7 @@ import React from "react";
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 import { portfolio } from "@/config/portfolio";
 import "./Footer.scss";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export const Footer: React.FC = () => {
   return (
@@ -26,34 +27,17 @@ export const Footer: React.FC = () => {
         <div className="footer-social">
           <h4>Connect With Me</h4>
           <div className="social-icons">
-            {portfolio.social?.github && (
-              <a 
-                href={portfolio.social.github} 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                aria-label="GitHub"
-              >
-                <FaGithub />
-              </a>
-            )}
-            {portfolio.social?.linkedin && (
-              <a 
-                href={portfolio.social.linkedin} 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                aria-label="LinkedIn"
-              >
-                <FaLinkedin />
-              </a>
-            )}
-            {portfolio.email && (
-              <a 
-                href={`mailto:${portfolio.email}`} 
-                aria-label="Email"
-              >
-                <FaEnvelope />
-              </a>
-            )}
+            {portfolio.socialLinks.map((link, index) => (
+                <a 
+                  key={index} 
+                  href={link.url} 
+                  target="_blank" 
+                  rel="noreferrer" 
+                  aria-label={link.name}
+                >
+                  <FontAwesomeIcon icon={link.icon} />
+                </a>
+              ))}
           </div>
         </div>
       </div>

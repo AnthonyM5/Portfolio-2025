@@ -9,12 +9,14 @@ const Header: React.FC = () => {
   // Check initial theme on mount
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     
     if (savedTheme) {
       setIsDarkMode(savedTheme === 'dark');
     } else {
-      setIsDarkMode(prefersDark);
+      // Set default to light mode
+      setIsDarkMode(false);
+      localStorage.setItem('theme', 'light');
+      document.documentElement.setAttribute('data-theme', 'light');
     }
     
     // Add scroll event listener
