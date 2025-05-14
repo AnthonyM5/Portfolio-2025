@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { portfolio } from '@/config/portfolio';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './Skills.scss';
 
 export const Skills = () => {
@@ -62,7 +63,7 @@ export const Skills = () => {
               variants={itemVariants}
             >
               <div className="skill-icon">
-                {skill.icon && <i className={skill.icon}></i>}
+                {skill.icon && <FontAwesomeIcon icon={skill.icon} />}
               </div>
               <h3>{skill.name}</h3>
               <p>{skill.description}</p>

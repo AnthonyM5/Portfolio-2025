@@ -1,5 +1,5 @@
-import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
-import { faGlobe } from '@fortawesome/free-solid-svg-icons';
+import { faGithub, faLinkedin, faAws, faAngular, faReact, faJs } from '@fortawesome/free-brands-svg-icons';
+import { faGlobe, faObjectGroup, faPlug, faVial, faServer, faGraduationCap, faLayerGroup, faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 export var portfolio = {
     firstName: "Anthony",
     lastName: "Mai",
@@ -7,7 +7,7 @@ export var portfolio = {
     description: "Front-end developer specializing in Angular, React.js, and Ionic for web and mobile applications",
     resumeLink: "/Resume_2025.pdf",
     greeting: {
-        title: "Hi, I'm Anthony Mai",
+        title: "Hi, I'm Anthony",
         subtitle: "Frontend Engineer with over 3 years of consulting experience at Accenture, delivering scalable, high-impact web and mobile applications across education, e-commerce, and banking domains. Proven track record in Angular/NgRX and React.js development, state management, and cross-platform UI/UX optimization. Skilled in managing multiple frontend libraries across large codebases using modular architectures, Nx monorepos, and custom design systems. Adept at implementing real-time features with Socket.io/Redis, building analytics pipelines with RxJS, and integrating third-party services like Google Analytics, Stripe, and DNS configurations. Known for debugging complex production issues, driving agile ceremonies, and collaborating with cross-functional teams to ship enterprise-grade software that is performant, maintainable, and secure."
     },
     social: {
@@ -21,42 +21,42 @@ export var portfolio = {
             {
                 name: "Frontend Development",
                 description: "Building responsive web and mobile apps with Angular, React.js, and Ionic",
-                icon: "fa-solid fa-code"
+                icon: faObjectGroup
             },
             {
                 name: "Angular & Ionic",
                 description: "Creating performant applications with NgRX/RxJS-based state management",
-                icon: "fa-brands fa-angular"
+                icon: faAngular
             },
             {
                 name: "React.js/Native",
                 description: "Developing modern applications with React ecosystem technologies",
-                icon: "fa-brands fa-react"
+                icon: faReact
             },
             {
                 name: "TypeScript",
                 description: "Writing type-safe, maintainable code for complex applications",
-                icon: "fa-brands fa-js"
+                icon: faJs
             },
             {
                 name: "API Integration",
                 description: "Working with middleware platforms like Hybris and Apigee for SAP based web apps",
-                icon: "fa-solid fa-plug"
+                icon: faPlug
             },
             {
                 name: "Testing",
                 description: "Implementing Jest and Cypress for unit and regression testing",
-                icon: "fa-solid fa-vial"
+                icon: faVial
             },
             {
                 name: "Backend Development",
                 description: "Building services with Node.js and Ruby on Rails",
-                icon: "fa-solid fa-server"
+                icon: faServer
             },
             {
                 name: "AWS",
                 description: "Cloud Practitioner certified with experience in deployment and services",
-                icon: "fa-brands fa-aws"
+                icon: faAws
             }
         ]
     },
@@ -169,22 +169,22 @@ export var portfolio = {
             {
                 title: "CUNY School of Professional Studies",
                 description: "Information Systems",
-                icon: "fa-solid fa-graduation-cap"
+                icon: faGraduationCap
             },
             {
                 title: "AWS Cloud Practitioner",
                 description: "Certified in fundamental AWS cloud knowledge and services",
-                icon: "fa-brands fa-aws"
+                icon: faAws
             },
             {
                 title: "Full Stack Development",
                 description: "Specialized in both frontend and backend technologies across multiple stacks",
-                icon: "fa-solid fa-layer-group"
+                icon: faLayerGroup
             },
             {
                 title: "Testing & Quality Assurance",
                 description: "Jest and Cypress testing frameworks for comprehensive application testing",
-                icon: "fa-solid fa-check-circle"
+                icon: faCheckCircle
             }
         ]
     },

@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { portfolio } from '@/config/portfolio';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './Achievement.scss';
 
 export const Achievement = () => {
@@ -62,7 +63,7 @@ export const Achievement = () => {
               variants={itemVariants}
             >
               <div className="achievement-icon">
-                {achievement.icon && <i className={achievement.icon}></i>}
+                {achievement.icon && <FontAwesomeIcon icon={achievement.icon} />}
               </div>
               <div className="achievement-content">
                 <h3>{achievement.title}</h3>
