@@ -1,5 +1,4 @@
 import React from "react";
-import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 import { portfolio } from "@/config/portfolio";
 import "./Footer.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

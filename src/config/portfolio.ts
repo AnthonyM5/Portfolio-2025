@@ -1,61 +1,5 @@
 import { faGithub, faLinkedin, faAws, faAngular, faReact, faJs } from '@fortawesome/free-brands-svg-icons';
 import { faGlobe, faObjectGroup, faPlug, faVial, faServer, faGraduationCap, faLayerGroup, faCheckCircle } from '@fortawesome/free-solid-svg-icons';
-import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
-
-interface Social {
-  github: string;
-  linkedin: string;
-  twitter?: string;
-}
-
-interface Project {
-  title: string;
-  description: string;
-  image: string;
-  technologies: string[];
-  demoLink?: string;
-  codeLink?: string;
-  category: string;
-}
-
-interface Skill {
-  name: string;
-  description: string;
-  icon?: IconDefinition;
-}
-
-interface Achievement {
-  title: string;
-  description: string;
-  date?: string;
-  link?: string;
-  icon?: IconDefinition;
-}
-
-interface Blog {
-  title: string;
-  summary: string;
-  date: string;
-  category: string;
-  image: string;
-  url: string;
-}
-
-interface SocialLink {
-  name: string;
-  url: string;
-  icon: IconDefinition;
-}
-
-interface Experience {
-  company: string;
-  position: string;
-  logo?: string;
-  location: string;
-  description: string[];
-  technologies: string[];
-  website?: string;
-}
 
 export const portfolio = {
   firstName: "Anthony",
@@ -66,7 +10,7 @@ export const portfolio = {
   
   greeting: {
     title: "Hi, I'm Anthony",
-    subtitle: "Frontend Engineer with over 3 years of consulting experience at Accenture, delivering scalable, high-impact web and mobile applications across education, e-commerce, and banking domains. Proven track record in Angular/NgRX and React.js development, state management, and cross-platform UI/UX optimization. Skilled in managing multiple frontend libraries across large codebases using modular architectures, Nx monorepos, and custom design systems. Adept at implementing real-time features with Socket.io/Redis, building analytics pipelines with RxJS, and integrating third-party services like Google Analytics, Stripe, and DNS configurations. Known for debugging complex production issues, driving agile ceremonies, and collaborating with cross-functional teams to ship enterprise-grade software that is performant, maintainable, and secure."
+    subtitle: "Frontend Engineer with over 4 years of consulting experience at Accenture, delivering scalable, high-impact web and mobile applications across education, e-commerce, and banking domains. Proven track record in Angular/NgRX and React.js development, state management, and cross-platform UI/UX optimization. Skilled in managing multiple frontend libraries across large codebases using modular architectures, Nx monorepos, and custom design systems. Adept at implementing real-time features with Socket.io/Redis, building analytics pipelines with RxJS, and integrating third-party services like Google Analytics, Stripe, and DNS configurations. Known for debugging complex production issues, driving agile ceremonies, and collaborating with cross-functional teams to ship enterprise-grade software that is performant, maintainable, and secure."
   },
 
   social: {

@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import { portfolio } from "@/config/portfolio";
 import "./SplashScreen.scss";
 import LottieAnimation from '../LottieAnimation';
 

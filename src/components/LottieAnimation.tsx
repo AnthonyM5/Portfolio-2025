@@ -26,7 +26,7 @@ const LottieAnimation: FC<LottieAnimationProps> = ({
   className = '',
   style = {},
 }) => {
-  const [animationData, setAnimationData] = useState<any>(null);
+  const [animationData, setAnimationData] = useState<Record<string, unknown> | null>(null);
   const [error, setError] = useState<boolean>(false);
 
   useEffect(() => {

@@ -15,6 +15,6 @@ declare module '*.json?raw' {
 }
 
 declare module '*.json' {
-  const value: any;
+  const value: unknown;
   export default value;
 }

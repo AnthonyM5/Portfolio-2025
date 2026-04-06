@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import SplashScreen from './SplashScreen';
 
-const withSplashScreen = (WrappedComponent: React.ComponentType) => {
-  return (props: any) => {
+const withSplashScreen = <P extends object>(WrappedComponent: React.ComponentType<P>) => {
+  return (props: P) => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
