@@ -102,72 +102,65 @@ export const portfolio = {
   },
   
   experience: {
-    title: "Professional Experience",
-    subtitle: "My career journey in software development",
-    experiences: [
-      {
-        company: "Financial Services/Banking",
-        position: "Frontend Developer",
-        logo: "assets/images/Banking-Finance.png",
-        location: "New York, NY",
-        description: [
-          "Supported an effort to add analytics to a massive online Angular web application for banking customers.",
-          "Used RxJS to track user flows for Domestic Wires and Cashiers Checks and visualized in Google Analytics.",
-          "Developed UI/UX features (Angular) with reactive state (NGRX) for an internal web application used by bank associates.",
-          "Assisted customers with their debit cards through the developed application.",
-          "Resolved production level bugs in a timely manner to reduce friction for bank associates.",
-          "Worked with product managers to streamline development work to prioritize impact in each sprint."
-        ],
-        technologies: ["Angular", "RxJS", "NGRX", "Google Analytics", "TypeScript"],
-        website: "#"
-      },
-      {
-        company: "Synchronous Learning/Training Platform",
-        position: "Full Stack Developer",
-        logo: "assets/images/root-logo-share-fb.jpg",
-        location: "New York, NY",
-        description: [
-          "Resolved access issues (especially for regions like China) by creating and deploying a custom Heroku Domain for existing Node.js service.",
-          "Developed a React.js MVP for a feature enhancement for an in-person data collection initiative.",
-          "Used Redis and Socket.io to create a synchronous experience for users on a mobile device.",
-          "Worked through SAST assessment and resolved 100% of open findings related to the scan.",
-          "Resolved security issues including restricting ports, unnecessary HTTP methods and headers."
-        ],
-        technologies: ["React.js", "Node.js", "Redis", "Socket.io", "Heroku", "Security Assessment"],
-        website: "#"
-      },
-      {
-        company: "Mirakl/Hybris Ecommerce Marketplace",
-        position: "Web Developer",
-        logo: "assets/images/SGWS.jpg",
-        location: "New York, NY",
-        description: [
-          "Integrated middleware platforms (Hybris/Mirakl) for SAP based eCommerce web app as part of the frontend development team.",
-          "Worked with Hybris/Apigee developers to integrate APIs and troubleshoot bugs during UAT testing.",
-          "Maintained web standards, design and usability, and best practices in web screen design.",
-          "Collaborated frequently with client demos and walkthroughs to align features and resolve bugs.",
-          "Successfully integrated middleware API layers (Apigee) to source and update data through web application and meet functional requirements."
-        ],
-        technologies: ["JavaScript", "SAP", "Hybris", "Apigee", "API Integration"],
-        website: "#"
-      },
-      {
-        company: "Education Support Services Company",
-        position: "Mobile App Developer",
-        logo: "assets/images/mybrightday.jpg",
-        location: "New York, NY",
-        description: [
-          "Successfully modernized the legacy application, leveraging Angular/Ionic and the NgRX/RxJS-based state management, resulting in notable performance improvements and enhanced user experience.",
-          "Worked with several libraries to increase re-usability across multiple apps including a design system with Ionic to create shared components.",
-          "Created a middleware layer (Next.js/Socket.io) for communications between staff/parents.",
-          "Through rigorous focus on code quality, reduced complexity and code reviews we fostered a collaborative environment within the development team.",
-          "Emphasis on Unit Testing with Jest helped to document issues and prevent regressions."
-        ],
-        technologies: ["Angular", "Ionic", "NgRX", "RxJS", "Jest", "Next.js", "Socket.io"],
-        website: "#"
-      }
-    ]
-  },
+  title: "Professional Experience",
+  subtitle: "My career journey in software development",
+  experiences: [
+    {
+      company: "Financial Services/Banking",
+      position: "Frontend Developer",
+      logo: "assets/images/Banking-Finance.png",
+      location: "New York, NY",
+      description: [
+        "Built and maintained role-based access control across a high-traffic internal Angular application, gating UI paths and feature visibility based on a combination of associate role and customer profile status -- ensuring associates only accessed what their entitlements allowed.",
+        "Designed and shipped multi-step form workflows from scratch, including a reactivation feature with dynamic branching logic that adapted based on associate and customer inputs across complex conditional paths.",
+        "Instrumented analytics across critical user flows using RxJS and Google Analytics, giving product teams visibility into how customers moved through Domestic Wires and Cashier's Check journeys.",
+        "Resolved production-level bugs under time pressure to reduce friction for bank associates and maintain SLA commitments on a mission-critical internal platform."
+      ],
+      technologies: ["Angular", "RxJS", "NGRX", "Google Analytics", "TypeScript"],
+      website: "#"
+    },
+    {
+      company: "Synchronous Learning/Training Platform",
+      position: "Full Stack Developer",
+      logo: "assets/images/root-logo-share-fb.jpg",
+      location: "New York, NY",
+      description: [
+        "Built a React MVP for a real-time, in-person data collection feature, using Redis and Socket.io to keep mobile users synchronized across sessions with low-latency state updates.",
+        "Restored international platform access -- including for users in China -- by deploying a custom Heroku domain configuration for an existing Node.js service.",
+        "Led a full SAST security assessment, resolving 100% of open findings including port restrictions, unnecessary HTTP methods, and exposed headers."
+      ],
+      technologies: ["React.js", "Node.js", "Redis", "Socket.io", "Heroku"],
+      website: "#"
+    },
+    {
+      company: "Mirakl/Hybris eCommerce Marketplace",
+      position: "Web Developer",
+      logo: "assets/images/SGWS.jpg",
+      location: "New York, NY",
+      description: [
+        "Integrated Hybris and Mirakl middleware into customer-facing frontend flows, including a checkout rework and Stripe payment integration; coordinated directly with Stripe on testing and resolved key integration blockers to ship the feature.",
+        "Partnered with Hybris and Apigee developers to integrate and troubleshoot APIs across UAT cycles, keeping the client demo timeline on track.",
+        "Maintained web standards and usability across the platform while collaborating directly with clients during walkthroughs to align features and surface bugs early."
+      ],
+      technologies: ["JavaScript", "SAP", "Hybris", "Mirakl", "Apigee", "Stripe"],
+      website: "#"
+    },
+    {
+      company: "Education Support Services Company",
+      position: "Mobile App Developer",
+      logo: "assets/images/mybrightday.jpg",
+      location: "New York, NY",
+      description: [
+        "Modernized a legacy mobile application using Angular, Ionic, and NgRX/RxJS-based state management, delivering meaningful performance improvements and a more reliable user experience for parents and staff.",
+        "Built a shared component library and design system using Ionic, increasing reusability across multiple apps in the product suite and reducing duplication across teams.",
+        "Architected a Nest.js middleware layer to handle real-time communications between staff and parents, improving reliability and decoupling the communication layer from the client.",
+        "Established a unit testing culture using Jest, reducing regressions and making the codebase easier for the team to iterate on with confidence."
+      ],
+      technologies: ["Angular", "Ionic", "NgRX", "RxJS", "Jest", "Nest.js", "Socket.io"],
+      website: "#"
+    }
+  ]
+},
   
   achievements: {
     title: "Education & Certifications",

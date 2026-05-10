@@ -7,6 +7,8 @@ export default defineConfig({
   publicDir: 'public',
   assetsInclude: ['**/*.json'],
   resolve: {
+    // Prefer TypeScript extensions first so .tsx/.ts are resolved before .js/.jsx
+    extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'],
     alias: {
       '@': path.resolve(__dirname, './src'),
     }

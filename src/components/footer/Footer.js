@@ -1,8 +1,0 @@
-import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
-import { portfolio } from "@/config/portfolio";
-import "./Footer.scss";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-export var Footer = function () {
-    return (_jsxs("footer", { className: "footer", children: [_jsxs("div", { className: "footer-content", children: [_jsxs("div", { className: "footer-info", children: [_jsx("h3", { children: portfolio.firstName }), _jsx("p", { children: portfolio.description })] }), _jsxs("div", { className: "footer-links", children: [_jsx("h4", { children: "Quick Links" }), _jsxs("ul", { children: [_jsx("li", { children: _jsx("a", { href: "#about", children: "About" }) }), _jsx("li", { children: _jsx("a", { href: "#skills", children: "Skills" }) }), _jsx("li", { children: _jsx("a", { href: "#projects", children: "Projects" }) }), _jsx("li", { children: _jsx("a", { href: "#experience", children: "Experience" }) }), _jsx("li", { children: _jsx("a", { href: "#contact", children: "Contact" }) })] })] }), _jsxs("div", { className: "footer-social", children: [_jsx("h4", { children: "Connect With Me" }), _jsx("div", { className: "social-icons", children: portfolio.socialLinks.map(function (link, index) { return (_jsx("a", { href: link.url, target: "_blank", rel: "noreferrer", "aria-label": link.name, children: _jsx(FontAwesomeIcon, { icon: link.icon }) }, index)); }) })] })] }), _jsx("div", { className: "footer-bottom", children: _jsxs("p", { children: ["\u00A9 ", new Date().getFullYear(), " ", portfolio.firstName, " ", portfolio.lastName, ". All Rights Reserved."] }) })] }));
-};
-export default Footer;
