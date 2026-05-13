@@ -71,11 +71,21 @@ export const portfolio = {
     categories: ["Web", "Mobile", "Integration", "Analytics"],
     projects: [
       {
+        title: "Next Platform Chart",
+        description: "A production-ready crypto tracking dashboard with real-time price data, interactive charts, and technical indicators including RSI, SMA, MACD, and Bollinger Bands.",
+        image: "assets/images/image-placeholder-icon-15-1769662654.png",
+        technologies: ["Next.js", "TypeScript", "Chart.js", "CoinGecko API"],
+        category: "Web",
+        liveUrl: "https://thechart.netlify.app/"
+      },
+      {
         title: "Educational Mobile App Modernization",
         description: "Successfully modernized a legacy application for an education support services company, leveraging Angular/Ionic and NgRX/RxJS-based state management, resulting in notable performance improvements and enhanced user experience.",
         image: "assets/images/mybrightday.jpg",
         technologies: ["Angular", "Ionic", "NgRX", "RxJS", "Jest"],
-        category: "Mobile"
+        category: "Mobile",
+        appStoreUrl: "https://apps.apple.com/us/app/my-bright-day/id1025221590?see-all=reviews",
+        playStoreUrl: "https://play.google.com/store/apps/details?id=com.brighthorizons.mybrightday&hl=en"
       },
       {
         title: "eCommerce Integration",
@@ -157,7 +167,17 @@ export const portfolio = {
         "Established a unit testing culture using Jest, reducing regressions and making the codebase easier for the team to iterate on with confidence."
       ],
       technologies: ["Angular", "Ionic", "NgRX", "RxJS", "Jest", "Nest.js", "Socket.io"],
-      website: "#"
+      website: "https://apps.apple.com/us/app/my-bright-day/id1025221590?see-all=reviews",
+      links: [
+        {
+          label: "App Store",
+          url: "https://apps.apple.com/us/app/my-bright-day/id1025221590?see-all=reviews"
+        },
+        {
+          label: "Google Play",
+          url: "https://play.google.com/store/apps/details?id=com.brighthorizons.mybrightday&hl=en"
+        }
+      ]
     }
   ]
 },

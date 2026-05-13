@@ -1,0 +1,96 @@
+@use '@/styles/variables' as v;
+
+.carousel {
+  position: relative;
+  width: 100%;
+}
+
+.carousel-track {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  gap: 0;
+  padding: 0;
+}
+
+.carousel-track::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-track {
+  scrollbar-width: none;
+}
+
+.carousel-slide {
+  flex: 0 0 100%;
+  scroll-snap-align: start;
+  padding: 0 v.$spacing-unit;
+  box-sizing: border-box;
+}
+
+.carousel-controls {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  margin-top: v.$spacing-unit * 1.5;
+}
+
+.carousel-arrows {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: flex-start;
+}
+
+.carousel-arrows:last-of-type {
+  justify-content: flex-end;
+}
+
+.carousel-arrow {
+  pointer-events: auto;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid v.$border-color;
+  background-color: v.$background-light;
+  color: v.$text-light;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: v.$transition-base;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-arrow:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.carousel-arrow:hover:not(:disabled) {
+  background-color: v.$primary-color;
+  color: white;
+  border-color: v.$primary-color;
+}
+
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.carousel-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  border: 1px solid v.$border-color;
+  background-color: transparent;
+  cursor: pointer;
+  transition: v.$transition-base;
+}
+
+.carousel-dot.active {
+  background-color: v.$primary-color;
+  border-color: v.$primary-color;
+}

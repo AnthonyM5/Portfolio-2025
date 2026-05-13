@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { portfolio } from '@/config/portfolio';
 import ExperienceCard from '@/components/experienceCard/ExperienceCard';
+import Carousel from '@/components/carousel/Carousel';
 import './Experience.scss';
 
 export const Experience = () => {
@@ -32,20 +33,23 @@ export const Experience = () => {
           {portfolio.experience.subtitle}
         </motion.p>
         
-        <div className="experience-timeline">
-          {portfolio.experience.experiences.map((experience, index) => (
-            <ExperienceCard
-              key={index}
-              index={index}
-              company={experience.company}
-              position={experience.position}
-              logo={experience.logo}
-              location={experience.location}
-              description={experience.description}
-              technologies={experience.technologies}
-              website={experience.website}
-            />
-          ))}
+        <div className="experience-carousel">
+          <Carousel ariaLabel="Experience carousel">
+            {portfolio.experience.experiences.map((experience, index) => (
+              <ExperienceCard
+                key={index}
+                index={index}
+                company={experience.company}
+                position={experience.position}
+                logo={experience.logo}
+                location={experience.location}
+                description={experience.description}
+                technologies={experience.technologies}
+                website={experience.website}
+                links={experience.links}
+              />
+            ))}
+          </Carousel>
         </div>
       </div>
     </section>

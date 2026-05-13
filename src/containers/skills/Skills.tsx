@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { portfolio } from '@/config/portfolio';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Carousel from '@/components/carousel/Carousel';
 import './Skills.scss';
 
 export const Skills = () => {
@@ -49,25 +50,27 @@ export const Skills = () => {
           {portfolio.skills.subtitle}
         </motion.p>
         
-        <motion.div 
-          className="skills-grid"
+        <motion.div
+          className="skills-carousel"
           variants={containerVariants}
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
         >
-          {portfolio.skills.skills.map((skill, index) => (
-            <motion.div 
-              key={index} 
-              className="skill-card"
-              variants={itemVariants}
-            >
-              <div className="skill-icon">
-                {skill.icon && <FontAwesomeIcon icon={skill.icon} />}
-              </div>
-              <h3>{skill.name}</h3>
-              <p>{skill.description}</p>
-            </motion.div>
-          ))}
+          <Carousel ariaLabel="Skills carousel">
+            {portfolio.skills.skills.map((skill, index) => (
+              <motion.div
+                key={index}
+                className="skill-card"
+                variants={itemVariants}
+              >
+                <div className="skill-icon">
+                  {skill.icon && <FontAwesomeIcon icon={skill.icon} />}
+                </div>
+                <h3>{skill.name}</h3>
+                <p>{skill.description}</p>
+              </motion.div>
+            ))}
+          </Carousel>
         </motion.div>
       </div>
     </section>

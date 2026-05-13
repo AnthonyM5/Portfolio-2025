@@ -10,6 +10,7 @@ interface ExperienceCardProps {
   description: string[];
   technologies: string[];
   website?: string;
+  links?: Array<{ label: string; url: string }>;
   index?: number;
 }
 
@@ -21,6 +22,7 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
   description,
   technologies,
   website,
+  links,
   index = 0
 }) => {
   return (
@@ -41,9 +43,9 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
           <div className="company-info">
             <h4>
               {website ? (
-                <p>
+                <a href={website} target="_blank" rel="noopener noreferrer">
                   {company}
-                </p>
+                </a>
               ) : (
                 company
               )}
@@ -65,10 +67,19 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
       
       <div className="experience-footer">
         <div className="technologies">
-          {technologies.reverse().map((tech, i) => (
+          {technologies.slice().reverse().map((tech, i) => (
             <span key={i} className="tech-tag">{tech}</span>
           ))}
         </div>
+        {links && links.length > 0 && (
+          <div className="experience-links">
+            {links.map((link, i) => (
+              <a key={i} href={link.url} target="_blank" rel="noopener noreferrer">
+                {link.label}
+              </a>
+            ))}
+          </div>
+        )}
       </div>
     </motion.div>
   );

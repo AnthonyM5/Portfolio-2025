@@ -49,22 +49,15 @@
     }
   }
   
-  .projects-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: v.$spacing-unit * 2;
-    
-    @include m.respond-to('md') {
-      grid-template-columns: repeat(2, 1fr);
-    }
-    
-    @include m.respond-to('lg') {
-      grid-template-columns: repeat(3, 1fr);
-    }
+  .projects-carousel {
+    max-width: 960px;
+    margin: 0 auto;
   }
   
   .project-card {
-    background-color: v.$background-light;
+    background-color: v.$background-dark;
+    background-position: center;
+    background-size: cover;
     border-radius: 8px;
     overflow: hidden;
     transition: v.$transition-base;
@@ -72,75 +65,38 @@
     height: 100%;
     display: flex;
     flex-direction: column;
+    position: relative;
+    min-height: 360px;
     
     &:hover {
       transform: translateY(-5px);
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
       
-      .project-overlay {
-        opacity: 1;
-      }
     }
-    
-    .project-image {
-      position: relative;
-      height: 200px;
-      overflow: hidden;
-      
-      img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transition: transform 0.3s ease;
-      }
-      
-      .project-overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.7);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        opacity: 0;
-        transition: opacity 0.3s ease;
-        
-        .project-links {
-          display: flex;
-          gap: v.$spacing-unit;
-          
-          a {
-            padding: 0.5rem 1rem;
-            background-color: v.$primary-color;
-            color: white;
-            border-radius: 4px;
-            font-size: v.$font-size-sm;
-            transition: background-color 0.3s ease;
-            
-            &:hover {
-              background-color: #3071d9; // Replace color.adjust with hardcoded darker primary color
-            }
-          }
-        }
-      }
+
+    .project-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.2) 100%);
+      z-index: 1;
     }
     
     .project-content {
-      padding: v.$spacing-unit * 1.5;
+      padding: v.$spacing-unit * 2;
       flex: 1;
       display: flex;
       flex-direction: column;
+      position: relative;
+      z-index: 2;
       
       h3 {
         font-size: v.$font-size-xl;
-        color: v.$text-light;
+        color: white;
         margin-bottom: v.$spacing-unit;
       }
       
       p {
-        color: v.$text-muted;
+        color: rgba(255, 255, 255, 0.85);
         font-size: v.$font-size-sm;
         margin-bottom: v.$spacing-unit;
         flex: 1;
@@ -150,13 +106,33 @@
         display: flex;
         flex-wrap: wrap;
         gap: 0.5rem;
+        margin-bottom: v.$spacing-unit;
         
         .project-tag {
           font-size: v.$font-size-sm;
-          color: v.$text-muted;
-          background-color: v.$background-dark;
+          color: rgba(255, 255, 255, 0.85);
+          background-color: rgba(0, 0, 0, 0.35);
           padding: 0.25rem 0.5rem;
           border-radius: 4px;
+        }
+      }
+
+      .project-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: v.$spacing-unit;
+
+        a {
+          padding: 0.5rem 1rem;
+          background-color: v.$primary-color;
+          color: white;
+          border-radius: 4px;
+          font-size: v.$font-size-sm;
+          transition: background-color 0.3s ease;
+
+          &:hover {
+            background-color: #3071d9;
+          }
         }
       }
     }

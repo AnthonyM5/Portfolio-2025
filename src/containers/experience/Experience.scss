@@ -23,24 +23,8 @@
     margin: 0 auto v.$spacing-unit * 3;
   }
   
-  .experience-timeline {
-    position: relative;
-    max-width: 800px;
+  .experience-carousel {
+    max-width: 900px;
     margin: 0 auto;
-    
-    &::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 24px;
-      width: 2px;
-      background-color: v.$border-color;
-      display: none;
-      
-      @include m.respond-to('md') {
-        display: block;
-      }
-    }
   }
 }
