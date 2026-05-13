@@ -1,7 +1,107 @@
 import { faGithub, faLinkedin, faAws, faAngular, faReact, faJs } from '@fortawesome/free-brands-svg-icons';
 import { faGlobe, faObjectGroup, faPlug, faVial, faServer, faGraduationCap, faLayerGroup, faCheckCircle } from '@fortawesome/free-solid-svg-icons';
+import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 
-export const portfolio = {
+export interface ProjectLink {
+  label: string;
+  url: string;
+}
+
+export interface ProjectItem {
+  title: string;
+  description: string;
+  image: string;
+  technologies: string[];
+  category: string;
+  liveUrl?: string;
+  repoUrl?: string;
+  appStoreUrl?: string;
+  playStoreUrl?: string;
+}
+
+export interface ExperienceItem {
+  company: string;
+  position: string;
+  logo: string;
+  location: string;
+  description: string[];
+  technologies: string[];
+  website?: string;
+  links?: ProjectLink[];
+}
+
+export interface PortfolioConfig {
+  firstName: string;
+  lastName: string;
+  title: string;
+  description: string;
+  resumeLink: string;
+  greeting: {
+    title: string;
+    subtitle: string;
+  };
+  social: {
+    github: string;
+    linkedin: string;
+  };
+  skills: {
+    title: string;
+    subtitle: string;
+    skills: Array<{
+      name: string;
+      description: string;
+      icon: IconDefinition;
+    }>;
+  };
+  projects: {
+    title: string;
+    subtitle: string;
+    categories: string[];
+    projects: ProjectItem[];
+  };
+  experience: {
+    title: string;
+    subtitle: string;
+    experiences: ExperienceItem[];
+  };
+  achievements: {
+    title: string;
+    subtitle: string;
+    achievements: Array<{
+      title: string;
+      description: string;
+      icon: IconDefinition;
+    }>;
+  };
+  blogs: {
+    title: string;
+    subtitle: string;
+    viewAllLink: string;
+    blogs: Array<{
+      title: string;
+      summary: string;
+      date: string;
+      category: string;
+      image: string;
+      url: string;
+    }>;
+  };
+  contact: {
+    title: string;
+    subtitle: string;
+    email: string;
+    phone: string;
+    location: string;
+  };
+  socialLinks: Array<{
+    name: string;
+    url: string;
+    icon: IconDefinition;
+  }>;
+  email: string;
+}
+
+export const portfolio: PortfolioConfig = {
   firstName: "Anthony",
   lastName: "Mai",
   title: "Product Engineering Specialist",
